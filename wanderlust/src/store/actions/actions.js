@@ -6,9 +6,10 @@ export const loginSuccess = () => {
   }
 }
 
-export const loginFailure = () => {
+export const loginFailure = (data) => {
   return { 
-    type: ACTION_TYPES.LOGIN_FAILURE
+    type: ACTION_TYPES.LOGIN_FAILURE,
+    payload: data
   }
 }
 
@@ -18,8 +19,9 @@ export const signupSuccess = () => {
   }
 }
 
-export const signupFailure = () => {
+export const signupFailure = (data) => {
   return { 
-    type: ACTION_TYPES.SIGNUP_FAILURE
+    type: ACTION_TYPES.SIGNUP_FAILURE,
+    payload: data
   }
 }
