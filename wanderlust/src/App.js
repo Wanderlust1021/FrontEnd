@@ -1,13 +1,25 @@
-import React from "react";
-import { connect } from "react-redux";
-import * as actionCreators from "./State/ActionCreators";
-import "./App.css";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 
-export function App(props) {
-  return <div className="App">
+// components
+import Login from './components/Login';
+import SignUp from './components/SignUp';
 
-    <h1>{props.test}</h1>
-  </div>;
+import { store } from './store'
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <div>
+        <Switch>
+          <Route path="/login" component={Login}/>
+          <Route path="/signup" component={SignUp} />
+        </Switch>
+      </div>
+    </Provider>
+  );
+
 }
 
 const mapStateToProps = state => {
