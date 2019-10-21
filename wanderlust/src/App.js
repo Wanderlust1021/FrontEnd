@@ -19,6 +19,16 @@ const App = () => {
       </div>
     </Provider>
   );
+
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    test: state.appState.test
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(App);
