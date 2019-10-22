@@ -1,0 +1,22 @@
+
+*, :after, :before {
+		    box-sizing: border-box;
+}
+
+body {
+  color: #4b4e55;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: #fafafa;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}

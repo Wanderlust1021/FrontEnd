@@ -1,0 +1,23 @@
+
+.home-search-bar {
+  background: #de3723;
+  padding: 2em 0;
+}
+
+.search-form input {
+  outline: none;
+  border: none;
+}
+
+.search-form input:focus {
+  box-shadow: none;
+}
+
+.search-form {
+  background: #fff;
+  padding-right: 0.5em;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

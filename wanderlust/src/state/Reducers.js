@@ -1,12 +1,12 @@
 import * as types from "./Actions";
 
-const initialState = {
+const initialAppState = {
   appState: [],
   isLoading: false,
-  error: "",
+  error: null,
   test: "its working"
 };
-
+/*
 export function appReducer(state = initialState, action) {
   switch (action.type) {
     // case types.FETCH_DATA:
@@ -32,13 +32,13 @@ export function appReducer(state = initialState, action) {
   }
 }
 
-
-
+*/
 
 const initialAuthState = {
-    isAuthenticated: false,
-    error: null
-  }
+  isAuthenticated: false,
+  error: null,
+  username: 'johnpaul'
+};
 
 export const authReducer = (state=initialAuthState, action) => {
     switch(action.type) {
@@ -47,7 +47,8 @@ export const authReducer = (state=initialAuthState, action) => {
         debugger
         return {
           ...state,
-          isAuthenticated: true
+          isAuthenticated: true,
+          username: action.payload.username
         }
   
       case types.LOGIN_FAILURE:
@@ -55,7 +56,7 @@ export const authReducer = (state=initialAuthState, action) => {
         debugger
         return {
           isAuthenticated: false,
-          error: action.payload
+          error: action.payload.error
         }
   
       default:

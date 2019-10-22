@@ -4,13 +4,13 @@ import { combineReducers, createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
-import "./index.css";
+import "./index.scss";
+import "./styles/auth.scss";
 import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-import * as reducers from "./State/Reducers";
+import * as reducers from "./state/Reducers";
 
 const allReducers = combineReducers({
-  appState: reducers.appReducer
+  authState: reducers.authReducer,
 });
 
 const store = createStore(
@@ -23,10 +23,10 @@ const store = createStore(
 );
 
 ReactDOM.render(
-    <Router>
-  <Provider store={store}>
-    <App />
-  </Provider>
+  <Router>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </Router>,
   document.getElementById("root")
 );

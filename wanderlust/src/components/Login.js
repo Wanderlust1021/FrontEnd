@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import * as actionCreators from "../State/ActionCreators";
-import * as reducers from "../State/Reducers";
+import * as actionCreators from "../state/ActionCreators";
+import * as reducers from "../state/Reducers";
 import axiosWithAuth from "../axiosWithAuth";
 import axios from "axios";
 import {
