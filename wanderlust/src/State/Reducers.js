@@ -31,3 +31,34 @@ export function appReducer(state = initialState, action) {
       return state;
   }
 }
+
+
+
+
+const initialAuthState = {
+    isAuthenticated: false,
+    error: null
+  }
+
+export const authReducer = (state=initialAuthState, action) => {
+    switch(action.type) {
+      case types.LOGIN_SUCCESS:
+      case types.SIGNUP_SUCCESS:
+        debugger
+        return {
+          ...state,
+          isAuthenticated: true
+        }
+  
+      case types.LOGIN_FAILURE:
+      case types.SIGNUP_FAILURE:
+        debugger
+        return {
+          isAuthenticated: false,
+          error: action.payload
+        }
+  
+      default:
+        return state;
+    }
+  }
