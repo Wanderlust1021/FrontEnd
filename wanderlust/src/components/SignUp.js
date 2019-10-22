@@ -3,8 +3,16 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import * as actionCreators from "../State/ActionCreators";
 import * as reducers from "../State/Reducers";
+import axiosWithAuth from "../axiosWithAuth";
 import axios from "axios";
-import { Form, Button, FormGroup, FormControl, FormText, FormLabel } from "react-bootstrap";
+import {
+  Form,
+  Button,
+  FormGroup,
+  FormControl,
+  FormText,
+  FormLabel
+} from "react-bootstrap";
 
 const signupUrl = "https://wanderlust-ty.herokuapp.com/api/user/register";
 
@@ -22,16 +30,19 @@ const SignUp = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-
+    console.log(user);
+    // axiosWithAuth()
     axios
-      .post(signupUrl)
+      .post(signupUrl, {
+        username: user.username,
+        password: user.password
+      })
       .then(response => {
-        response.data.username
-          ? props.signupSuccess()
-          : props.signupFailure(response.data.message);
+        localStorage.setItem("token", response.data.payload);
+        props.history.push("/");
       })
       .catch(error => {
-        props.signupFailure(error.response.data.message);
+        debugger;
       });
   };
 
@@ -72,25 +83,19 @@ const SignUp = props => {
     // </div>
     <Form>
       <FormGroup controlId="validationFormik01">
-        <FormControl
-          name="firstName"
-          type="text"
-          placeholder="First Name"
-          // value={values.firstName}
-          // isValid={touched.firstName && !errors.firstName}
-        />
+        <FormControl name="firstName" type="text" placeholder="First Name" />
       </FormGroup>
       <FormGroup controlId="validationFormik02">
-        <FormControl
-          name="lastName"
-          type="text"
-          placeholder="Last Name"
-          // value={values.firstName}
-          // isValid={touched.lastName && !errors.lastName}
-        />
+        <FormControl name="lastName" type="text" placeholder="Last Name" />
       </FormGroup>
       <FormGroup controlId="ValidationFormikUsername">
-        <FormControl name="username" type="username" placeholder="Username" />
+        <FormControl
+          name="username"
+          type="username"
+          placeholder="Username"
+          value={user.username}
+          onChange={handleChange}
+        />
       </FormGroup>
       <FormGroup controlId="ValidationFormikEmail">
         <FormControl type="email" placeholder="Enter email" />
@@ -100,7 +105,13 @@ const SignUp = props => {
       </FormGroup>
 
       <Form.Group controlId="ValidationFormikPassword">
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Control
+          name="password"
+          type="password"
+          placeholder="Password"
+          value={user.password}
+          onChange={handleChange}
+        />
         <Form.Text className="text-muted">
           Must be at least 8 characters.
         </Form.Text>
@@ -108,7 +119,7 @@ const SignUp = props => {
       <Form.Group controlId="FormBasicCheckbox">
         <Form.Check type="checkbox" label="Accept Terms & Conditions" />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" onClick={handleSubmit}>
         Register
       </Button>
     </Form>

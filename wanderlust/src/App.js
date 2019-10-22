@@ -11,17 +11,6 @@ import SignUp from "./components/SignUp";
 
 const App = props => {
   return (
-    // <div>
-    //   <div>
-    //     <NavLink to="login">log in </NavLink>
-    //     <NavLink to="signup">sign up </NavLink>
-    //   </div>
-    //   <Switch>
-    //     <Route path="/login" component={Login} />
-    //     <Route path="/signup" component={SignUp}/>
-    //   </Switch>
-    // </div>
-
     <WrapDiv>
       <MainStyled>
         <NavBarStyled>
@@ -46,32 +35,15 @@ const App = props => {
             <h5> JOIN </h5>
           </NavLink>
         </NavBarStyled>
-        <Route
-          exact
-          path="/"
-          render={props => (
-            <Login
-           
-            />
-          )}
-        />
+        <Route exact path="/" render={props => <Login {...props} />} />
         <div>
           <div>
             <h6>
-              {" "}
               <Link to="/signUp"> Don't have an account? Join </Link>
             </h6>
           </div>
         </div>
-        <Route
-          exact
-          path="/signUp"
-          render={props => (
-            <SignUp
-            
-            />
-          )}
-        />
+        <Route exact path="/signUp" render={props => <SignUp {...props} />} />
       </MainStyled>
     </WrapDiv>
   );
@@ -87,7 +59,6 @@ export default connect(
   mapStateToProps,
   actionCreators
 )(App);
-
 
 const WrapDiv = styled.div`
   border: 1px solid white;
@@ -109,12 +80,11 @@ const MainStyled = styled.main`
   min-height: 40vh;
   max-width: 350px;
   margin: 70px auto;
-  background: white;
+  background: #a9d3e9;
   padding: 15px;
-  opacity: 0.8;
+  opacity: 0.85;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   &:hover {
     cursor: pointer;
-  
   }
 `;
