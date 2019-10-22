@@ -28,13 +28,11 @@ const Login = props => {
     axiosWithAuth()
       .post("/user/login", user)
       .then(response => { console.log(user)
-        debugger
         localStorage.setItem("token", response.data.payload);
         props.history.push("/experiences");
    
       })
       .catch(error => {
-        debugger
         // props.loginFailure(error.response.data.message);
       });
 
