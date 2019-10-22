@@ -10,7 +10,7 @@ import * as serviceWorker from "./serviceWorker";
 import * as reducers from "./State/Reducers";
 
 const allReducers = combineReducers({
-  appState: reducers.appReducer
+  appState: reducers.experienceReducer
 });
 
 const store = createStore(

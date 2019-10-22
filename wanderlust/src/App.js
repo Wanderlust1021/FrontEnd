@@ -2,18 +2,33 @@ import React from "react";
 import { Route, NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "./State/ActionCreators";
+import PrivateRoute from "./PrivateRoute";
 import styled from "styled-components";
 import img from "./Images/forestGreen.png";
 
 // components
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import Experiences from "./components/Experiences";
 
 const App = props => {
   return (
     <WrapDiv>
-      <MainStyled>
-        <NavBarStyled>
+    
+      <NavBarStyled>
+        <div>
+          <NavLink
+            to="/experiences"
+            activeStyle={{
+              fontWeight: "bold",
+              color: "#0069d9",
+              fontFamily: "ABeeZee"
+            }}
+          >
+            <h6> explore experiences </h6>
+          </NavLink>
+        </div>
+        <div>
           <NavLink
             to="/"
             activeStyle={{
@@ -22,8 +37,10 @@ const App = props => {
               fontFamily: "ABeeZee"
             }}
           >
-            <h5> SIGN IN </h5>
+            <h5> log in </h5>
           </NavLink>
+        </div>
+        <div>
           <NavLink
             to="/signUp"
             activeStyle={{
@@ -32,14 +49,23 @@ const App = props => {
               fontFamily: "ABeeZee"
             }}
           >
-            <h5> JOIN </h5>
+            <h5> sign up </h5>
           </NavLink>
-        </NavBarStyled>
+          <div>
+            <NavLink to="/">
+              <h5>log out</h5>
+            </NavLink>
+          </div>
+        </div>
+      </NavBarStyled>
+
+      <PrivateRoute path="/experiences" component={Experiences} />
+      <MainStyled>
         <Route exact path="/" render={props => <Login {...props} />} />
         <div>
           <div>
             <h6>
-              <Link to="/signUp"> Don't have an account? Join </Link>
+              <Link to="/signUp"> Don't have an account? Sign Up </Link>
             </h6>
           </div>
         </div>
@@ -72,7 +98,9 @@ const WrapDiv = styled.div`
 const NavBarStyled = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-right: 20px;
+  margin-right: 10px;
+  background-color: "#a9d3e9";
+  padding: "10px";
 `;
 
 const MainStyled = styled.main`
