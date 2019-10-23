@@ -44,9 +44,10 @@ export const startAuth = () => {
   }
 }
 
-export const loginSuccess = () => {
+export const loginSuccess = (username) => {
   return { 
-     type: types.LOGIN_SUCCESS
+    type: types.LOGIN_SUCCESS,
+    payload: username
    }
  }
 
@@ -63,3 +64,4 @@ export const authFailure = (data) => {
    payload: data
  }
 }
+

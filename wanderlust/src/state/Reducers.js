@@ -54,7 +54,8 @@ export const authReducer = (state=initialAuthState, action) => {
         return {
           ...state,
           isAuthenticated: true,
-          isLoading: false
+          isLoading: false,
+          username: action.payload
         }
   
       case types.SIGNUP_SUCCESS:
