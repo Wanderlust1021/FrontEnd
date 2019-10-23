@@ -2,10 +2,10 @@ import * as types from "./Actions";
 import axios from "axios";
 import axiosWithAuth from "../axiosWithAuth";
 
-export const fetchData = () => dispatch => {
+export const fetchExperience = () => dispatch => {
   dispatch({ type: types.FETCH_DATA });
-  axios
-    .get("")
+  axiosWithAuth()
+    .get("/exp")
     .then(res => {
       dispatch({ type: types.FETCHED_SUCCESSFULLY, payload: res.data });
     })

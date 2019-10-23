@@ -2,8 +2,8 @@ import React from 'react';
 import ExperienceCard from './ExperienceCard';
 import HomePage from './HomePage';
 
-const Experiences = (props) => {
-  let experiences = [1,2,3,4,5,6];
+function Experiences(props) {
+  const [experiences, setExperiences] = useState([]);
 
   return(
     <HomePage>
