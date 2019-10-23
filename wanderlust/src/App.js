@@ -9,11 +9,13 @@ import Experience from './components/Experience';
 import Organizers from './components/Organizers';
 import Organizer from './components/Organizer';
 
+import { AuthTest } from './components/AuthTest';
+
 const App = props => {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={Authentication} />
+        <Route  path="/auth" component={AuthTest} />
         <Route exact path="/experiences" render={
           props => (
             <HomePage {...props} >

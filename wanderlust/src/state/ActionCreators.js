@@ -38,29 +38,28 @@ export const updateExperience = () => dispatch => {
     });
 };
 
+export const startAuth = () => {
+  return {
+    type: types.AUTH_START
+  }
+}
 
-// export const loginSuccess = () => {
-//   return { 
-//     type: ACTION_TYPES.LOGIN_SUCCESS
-//   }
-// }
+export const loginSuccess = () => {
+  return { 
+     type: types.LOGIN_SUCCESS
+   }
+ }
 
-// export const loginFailure = (data) => {
-//   return { 
-//     type: ACTION_TYPES.LOGIN_FAILURE,
-//     payload: data
-//   }
-// }
+export const signupSuccess = (data) => {
+  return {
+    type: types.SIGNUP_SUCCESS,
+    payload: data
+  }
+}
 
-// export const signupSuccess = () => {
-//   return { 
-//     type: ACTION_TYPES.SIGNUP_SUCCESS
-//   }
-// }
-
-// export const signupFailure = (data) => {
-//   return { 
-//     type: ACTION_TYPES.SIGNUP_FAILURE,
-//     payload: data
-//   }
-// }
+export const authFailure = (data) => {
+ return { 
+   type: types.AUTH_FAILURE,
+   payload: data
+ }
+}
