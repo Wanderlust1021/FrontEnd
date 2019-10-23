@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import axiosWithAuth from "../axiosWithAuth";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/ActionCreators";
 
-const initialAddExperienceForm = {
+const initialUpdateForm = {
     org_name: "",
     experience_title: "",
     experience_desc: "",
@@ -12,23 +12,38 @@ const initialAddExperienceForm = {
     image: null
     },
 
-export const addExperienceForm = props => {
-  const [ newExperience, setNewExperience ] = useState(initialAddExperienceForm);
+export const UpdateExperienceForm = props => {
+    const { match, experiences } = props;
 
-  const handleChange = e => {
-    setNewExperience({
-      ...newExperience,
-      [e.target.name]: e.target.value
-    });
-  };
-  const addExperience = e => dispatch => {
+  const [ experience, setExperience ] = useState(initialUpdateForm);
+
+  const id = match.params.id
+
+
+    useEffect(() => {
+  const experienceToUpdate = experiences.find(experience => `${experience.id}` === id );
+  if (experienceToUpdate){
+      setExperience(experienceToUpdate)
+  }}, [match, experiences]
+)
+
+const handleSubmit = e => dispatch => {
     e.preventDefault();
     axiosWithAuth()
-      .post("/org/register", )
+      .put(`/exp/${experience.id}`, experience)
       .then(response => {
           console.log(res)
       })
   };
+
+  
+  const handleChange = e => {
+    setExperience({
+      ...experience,
+      [e.target.name]: e.target.value
+    });
+  };
+  
  
 
   return (
@@ -95,4 +110,4 @@ const mapStateToProps = state => {
   export default connect(
     mapStateToProps,
     actionCreators
-  )(addExperienceForm);
+  )(UpdateExperienceForm);
