@@ -1,0 +1,100 @@
+
+.panel-card {
+  margin-bottom: 1.3em;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+  border-color: #ddd;
+  padding: 1.2em;
+}
+
+.display-image {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 200px;
+  max-height: 200px;
+}
+
+.display-organizer-image {
+    min-width: 50%;
+    max-width: 50%;
+    min-height: 150px;
+    max-height: 150px;
+}
+
+.panel-title {
+    height: 2.2em;
+    font-size: 1.5em;
+    overflow-y: hidden;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-overflow: ellipsis;
+}
+
+.panel-description {
+    min-height: 100px;
+    max-height: 100px;
+    overflow-y: hidden;
+    margin-bottom: 10px;
+}
+
+.panel-location h4 {
+  font-size: 1em;
+}
+
+.panel {
+    margin-bottom: 21px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+
+.panel-default {
+    border-color: #ddd;
+}
+
+.panel-body {
+  padding: 1em;
+}
+
+hr.panel-border {
+    border-top: 1px dashed #8c8b8b;
+}
+
+.price-label {
+  font-size: 1.3em;
+}
+
+.price {
+    font-size: 25px;
+    color: #de3723;
+    font-weight: bolder;
+}
+
+.duration-label {
+  font-size: 1.1em;
+}
+
+.panel-default >.panel-heading {
+    color: #333333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 1px;
+    border-top-left-radius: 1px;
+}
+
+.panel-profile-pic {
+  width: 55px;
+  display: block;
+}
+
+.panel-profile-pic img {
+  width: 100%;
+}

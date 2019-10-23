@@ -1,5 +1,6 @@
 header {
-    background: #222;
+  background: #222;
+  width: 100%;
 }
 
 .header-desktop {
@@ -17,6 +18,9 @@ header {
 
 .logo-v2 span {
   font-family: 'Reem Kufi', sans-serif;
+  font-size: 1.4em;
+  color: #fff;
+  letter-spacing: .5px;
 }
 
 .menu-v2 {
@@ -89,6 +93,7 @@ ul.main-menu {
 
 .about:hover .sub-menu {
   display: block;
+  z-index: 9999;
 }
 
 .sub-menu li {

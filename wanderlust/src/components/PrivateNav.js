@@ -1,26 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { withRouter } from "react-router";
 
 const PrivateNav = ({isAuthenticated, username}) => {
   const logout = () => {}
   return (
-    <header  style={{top:'0px', position: 'sticky'}}>
-		<div className="header-desktop hidden-xs container">
+    <header style={{position: 'sticky', top: '0px'}}>
+		<nav className="header-desktop hidden-xs container">
 		  <div class="logo-v2">
 		      <span>
 		        Wanderlust
 		      </span>
 		  </div>
-		  <nav class="menu-v2">
+		  <div class="menu-v2">
 		  	<ul class="main-menu">
 		  		<li>
-		  			<Link>
+            <Link to="/experiences">
 		  			  Experiences
 		  			</Link>
 		  		</li>
 		  		<li>
-		  			<Link>
+            <Link to="/organizers">
 		  			  Organizers
 		  			</Link>
 		  		</li>
@@ -43,8 +44,8 @@ const PrivateNav = ({isAuthenticated, username}) => {
 		  
 		  		</li>
 		  	</ul>
-		  </nav>
-		</div>
+		  </div>
+		</nav>
 	</header>
   )
 }
@@ -53,4 +54,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.authState.isAuthenticated,
   username: state.authState.username,
 })
-export default connect(mapStateToProps)(PrivateNav);
+export default connect(mapStateToProps)(withRouter(PrivateNav));

@@ -1,0 +1,36 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PrivateNav from './PrivateNav';
+import OrganizerSidePanel from './OrganizerSidePanel';
+import ExperienceSidePanel from './ExperienceSidePanel';
+
+const Experience = (props) => {
+  return (
+    <div>
+      <PrivateNav />
+
+      <section className="experience-item">
+        <div className="container">
+          <div className="hero mb-2"></div>
+          <div className="row mb-2">
+            <div className="col-md-12">
+              <Link className="btn-custom btn-red btn-lg btn-block">BOOK NOW!</Link>
+            </div>
+          </div>
+          
+          <div className="row">
+            <div className="col-md-3">
+              <OrganizerSidePanel />
+            </div>
+            <div className="col-md-9">
+              <ExperienceSidePanel />
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  )
+}
+
+export default Experience;

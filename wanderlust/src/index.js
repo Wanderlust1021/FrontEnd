@@ -5,12 +5,12 @@ import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 import "./index.scss";
-import "./styles/auth.scss";
 import App from "./App";
 import * as reducers from "./state/Reducers";
 
 const allReducers = combineReducers({
   authState: reducers.authReducer,
+  appState: reducers.appReducer,
 });
 
 const store = createStore(
