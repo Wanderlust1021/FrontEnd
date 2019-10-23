@@ -26,11 +26,31 @@ const App = props => {
   return (
     <div>
       <Switch>
-        <Route  path="/auth" component={Authentication} />
-        <PrivateRoute exact path="/experiences" component={Experiences}/>
-        <PrivateRoute path="/experiences/:id" component={Experience} />
-        <PrivateRoute exact path="/organizers" component={Organizers} />
-        <PrivateRoute path="/organizers/:id" component={Organizer} />
+
+        <Route  path="/auth" component={AuthTest} />
+        <Route exact path="/experiences" render={
+          props => (
+            <HomePage {...props} >
+              <Experiences />
+            </HomePage>
+          )
+        } />
+        <Route path="/experiences/:id" component={Experience} />
+        <Route exact path="/organizers" render={
+          props => (
+            <HomePage {...props}>
+              <Organizers />
+            </HomePage>
+          )
+        } />
+        <Route path="/organizers/:id" component={Organizer} />
+        <Route
+        path="/experiences/:id"
+        render={props => (
+          <UpdateExperienceForm {...props} />
+        )}
+      />
+
       </Switch>
     </div>
   )
