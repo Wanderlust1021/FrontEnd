@@ -15,7 +15,8 @@ import { Icon } from 'antd';
 
 const loginUrl = "https://wanderlust-ty.herokuapp.com/api/user/login";
 
-const Login = ({startAuth, loginSuccess, authFailure, isLoading, history}) => {
+const Login = (props) => {
+  const {startAuth, loginSuccess, authFailure, isLoading, history} = props;
   const initalState = { username: "", password: "" };
   const [user, setUser] = useState(initalState);
 
@@ -29,12 +30,12 @@ const Login = ({startAuth, loginSuccess, authFailure, isLoading, history}) => {
     event.preventDefault();
     axiosWithAuth()
       .post("/user/login", user)
-      .then(response => { console.log(user)
+      .then(response => {
         debugger
         localStorage.setItem("token", response.data.token);
-        loginSuccess()
+        localStorage.setItem("username", user.username);
+        loginSuccess(user.username)
         history.push("/experiences");
-   
       })
       .catch(error => {
         debugger
@@ -83,8 +84,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   startAuth: () => dispatch(startAuth()),
-  loginSuccess: () => dispatch(loginSuccess()),
-  authFailure: error => dispatch(authFailure(error))
+  loginSuccess: username => dispatch(loginSuccess(username)),
+  authFailure: error => dispatch(authFailure(error)),
 })
 
 export default connect(

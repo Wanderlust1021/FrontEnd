@@ -7,33 +7,23 @@ import styled from "styled-components";
 import img from "./Images/forestGreen.png";
 
 // components
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
-import Experiences from "./components/Experiences";
+import Authentication from './components/Authentication';
+import Experiences from './components/Experiences';
+import Experience from './components/Experience';
+import Organizers from './components/Organizers';
+import Organizer from './components/Organizer';
+import PrivateRoute from './components/PrivateRoute';
 
-import { AuthTest } from './components/AuthTest';
 
 const App = props => {
   return (
     <div>
       <Switch>
-        <Route  path="/auth" component={AuthTest} />
-        <Route exact path="/experiences" render={
-          props => (
-            <HomePage {...props} >
-              <Experiences />
-            </HomePage>
-          )
-        } />
-        <Route path="/experiences/:id" component={Experience} />
-        <Route exact path="/organizers" render={
-          props => (
-            <HomePage {...props}>
-              <Organizers />
-            </HomePage>
-          )
-        } />
-        <Route path="/organizers/:id" component={Organizer} />
+        <Route  path="/auth" component={Authentication} />
+        <PrivateRoute exact path="/experiences" component={Experiences}/>
+        <PrivateRoute path="/experiences/:id" component={Experience} />
+        <PrivateRoute exact path="/organizers" component={Organizers} />
+        <PrivateRoute path="/organizers/:id" component={Organizer} />
       </Switch>
     </div>
   )
