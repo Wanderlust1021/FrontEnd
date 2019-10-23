@@ -21,12 +21,12 @@ import Footer from "./components/Footer";
 
 
 
-import { AuthTest } from './components/AuthTest';
 
 const App = props => {
   return (
     <div>
       <Switch>
+
         <Route  path="/auth" component={AuthTest} />
         <Route exact path="/experiences" render={
           props => (
@@ -50,6 +50,7 @@ const App = props => {
           <UpdateExperienceForm {...props} />
         )}
       />
+
       </Switch>
     </div>
   )

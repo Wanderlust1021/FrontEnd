@@ -50,11 +50,20 @@ export const startAuth = () => {
   };
 };
 
+<<<<<<< HEAD
 export const loginSuccess = () => {
   return {
     type: types.LOGIN_SUCCESS
   };
 };
+=======
+export const loginSuccess = (username) => {
+  return { 
+    type: types.LOGIN_SUCCESS,
+    payload: username
+   }
+ }
+>>>>>>> master
 
 export const signupSuccess = data => {
   return {
@@ -63,9 +72,19 @@ export const signupSuccess = data => {
   };
 };
 
+<<<<<<< HEAD
 export const authFailure = data => {
   return {
     type: types.AUTH_FAILURE,
     payload: data
   };
 };
+=======
+export const authFailure = (data) => {
+ return { 
+   type: types.AUTH_FAILURE,
+   payload: data
+ }
+}
+
+>>>>>>> master

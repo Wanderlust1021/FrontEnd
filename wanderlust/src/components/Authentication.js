@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, NavLink, Link } from "react-router-dom";
+import { Route, NavLink, Switch, useRouteMatch } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/ActionCreators";
 import img from '../images/forestGreen.png';
@@ -14,13 +14,14 @@ import {
 import Login from "./Login";
 import SignUp from "./SignUp";
 
-const Authentication = props => {
+export const AuthTest = props => {
+  let { path, url } = useRouteMatch();
   return (
     <WrapDiv img={img}>
       <MainStyled>
         <NavBarStyled>
           <NavLink
-            to="/"
+            to={`${url}/login`}
             activeStyle={{
               fontWeight: "bold",
               color: "#0069d9",
@@ -30,7 +31,7 @@ const Authentication = props => {
             <h5> SIGN IN </h5>
           </NavLink>
           <NavLink
-            to="/signUp"
+            to={`${url}/signup`}
             activeStyle={{
               fontWeight: "bold",
               color: "white",
@@ -40,15 +41,11 @@ const Authentication = props => {
             <h5> JOIN </h5>
           </NavLink>
         </NavBarStyled>
-        <Route exact path="/" render={props => <Login {...props} />} />
-        <div>
-          <div>
-            <h6>
-              <Link to="/signUp"> Don't have an account? Join </Link>
-            </h6>
-          </div>
-        </div>
-        <Route  path="/signUp" render={props => <SignUp {...props} />} />
+        <Switch>
+          <Route exact path={path} component={Login} />
+          <Route path={`${path}/login`} render={props => <Login {...props} />} />
+          <Route  path={`${path}/signup`} render={props => <SignUp {...props} />} />
+        </Switch>
       </MainStyled>
     </WrapDiv>
   );
@@ -64,4 +61,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   actionCreators
-)(Authentication);
+)(AuthTest);
