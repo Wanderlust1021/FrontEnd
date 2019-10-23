@@ -11,12 +11,17 @@ import {
   FormLabel,
   Form
 } from "react-bootstrap";
-import { Icon } from 'antd';
+import { Icon } from "antd";
 
 const loginUrl = "https://wanderlust-ty.herokuapp.com/api/user/login";
 
-const Login = (props) => {
-  const {startAuth, loginSuccess, authFailure, isLoading, history} = props;
+const Login = ({
+  startAuth,
+  loginSuccess,
+  authFailure,
+  isLoading,
+  history
+}) => {
   const initalState = { username: "", password: "" };
   const [user, setUser] = useState(initalState);
 
@@ -31,15 +36,15 @@ const Login = (props) => {
     axiosWithAuth()
       .post("/user/login", user)
       .then(response => {
-        debugger
+        console.log(user);
+        debugger;
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("username", user.username);
-        loginSuccess(user.username)
+        loginSuccess();
         history.push("/experiences");
       })
       .catch(error => {
-        debugger
-        authFailure(error.response.data.message)
+        debugger;
+        authFailure(error.response.data.message);
       });
 
     setUser(initalState);
@@ -69,24 +74,33 @@ const Login = (props) => {
         />
       </FormGroup>
 
-      <Button variant="primary" type="submit" onClick={handleSubmit} className="text-center">
-        {isLoading? <Icon type="loading" /> : `Login`}
+      <Button
+        variant="primary"
+        type="submit"
+        onClick={handleSubmit}
+        className="text-center"
+      >
+        {isLoading ? <Icon type="loading" /> : `Login`}
       </Button>
     </Form>
   );
 };
 
 const mapStateToProps = state => ({
-    error: state.authState.error,
-    isLoading: state.authState.isLoading
+  error: state.authState.error,
+  isLoading: state.authState.isLoading
 });
-
-
 const mapDispatchToProps = dispatch => ({
   startAuth: () => dispatch(startAuth()),
+<<<<<<< HEAD
+  loginSuccess: () => dispatch(loginSuccess()),
+  authFailure: error => dispatch(authFailure(error))
+});
+=======
   loginSuccess: username => dispatch(loginSuccess(username)),
   authFailure: error => dispatch(authFailure(error)),
 })
+>>>>>>> master
 
 export default connect(
   mapStateToProps,

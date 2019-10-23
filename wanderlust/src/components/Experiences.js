@@ -1,27 +1,43 @@
-import React from 'react';
-import ExperienceCard from './ExperienceCard';
-import HomePage from './HomePage';
+import React, { useState, useEffect } from "react";
+import axiosWithAuth from "../axiosWithAuth";
+import { connect } from "react-redux";
+import * as actionCreators from "../state/ActionCreators";
 
-function Experiences(props) {
+
+export function Experiences(props) {
+  console.log(props)
   const [experiences, setExperiences] = useState([]);
 
-  return(
-    <HomePage>
-      <main className='experiences-list'>
-        <div className="container">
-          <div className="row">
-            {
-              experiences.map((experience, id) => (
-              <div className="col-md-4" key={id}>
-                <ExperienceCard />
-              </div>
-              ))
-            }
+  useEffect(() => {
+    props.fetchExperiences()
+  }, []);
+
+  return (
+    experiences && (
+      <div >
+        {/* {experiences.map(el => (
+          <div key={el.org_name}>
+            {el.org_name}
+            <p>{el.date}</p>
+            <p>{el.experience_desc}</p>
+            <div>
+              <img src={el.date} />
+            </div>
+            {el.experience_title}
           </div>
-        </div>
-      </main>
-    </HomePage>
-  )
+        ))} */}
+      </div>
+    )
+  );
 }
 
-export default Experiences;
+const mapStateToProps = state => {
+  return {
+    experiences: state.appState
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(Experiences);

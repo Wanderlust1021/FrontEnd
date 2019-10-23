@@ -14,6 +14,12 @@ export const fetchExperience = () => dispatch => {
     });
 };
 
+// const addExperience = e => dispatch => {
+//   e.preventDefault();
+//   axiosWithAuth()
+//     .post("/org/register", );
+// };
+
 export const deleteExperience = () => dispatch => {
   dispatch({});
   axiosWithAuth()
@@ -41,23 +47,39 @@ export const updateExperience = () => dispatch => {
 export const startAuth = () => {
   return {
     type: types.AUTH_START
-  }
-}
+  };
+};
 
+<<<<<<< HEAD
+export const loginSuccess = () => {
+  return {
+    type: types.LOGIN_SUCCESS
+  };
+};
+=======
 export const loginSuccess = (username) => {
   return { 
     type: types.LOGIN_SUCCESS,
     payload: username
    }
  }
+>>>>>>> master
 
-export const signupSuccess = (data) => {
+export const signupSuccess = data => {
   return {
     type: types.SIGNUP_SUCCESS,
     payload: data
-  }
-}
+  };
+};
 
+<<<<<<< HEAD
+export const authFailure = data => {
+  return {
+    type: types.AUTH_FAILURE,
+    payload: data
+  };
+};
+=======
 export const authFailure = (data) => {
  return { 
    type: types.AUTH_FAILURE,
@@ -65,3 +87,4 @@ export const authFailure = (data) => {
  }
 }
 
+>>>>>>> master

@@ -12,3 +12,7 @@ export const AUTH_START = 'AUTH_START';
 
 export const AUTH_FAILURE = 'AUTH_FAILURE';
 
+<<<<<<< HEAD
+export const ADD_EXPERIENCE = 'ADD_EXPERIENCE';
+=======
+>>>>>>> master
