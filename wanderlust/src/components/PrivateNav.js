@@ -4,8 +4,13 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 
 const PrivateNav = (props) => {
-  const { isAuthenticated, username } = props;
-  const logout = () => {}
+  const username = props.username || localStorage.getItem('username');
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    props.history.push('/auth/login');
+  }
+
   return (
     <header clasName="pt-1 pb-1" style={{position: 'sticky', top: '0px'}}>
 		<nav className="header-desktop hidden-xs container">
@@ -33,13 +38,13 @@ const PrivateNav = (props) => {
 		  			</Link>
 		  			<ul class="sub-menu">
 		  				<li>
-		  					<Link to="#">Home</Link>
+                <Link to="/experiences">Home</Link>
 		  				</li>
 		  				<li>
 		  					<Link to="#">Profile</Link>
 		  				</li>
 		  				<li>
-		              <Link to="/logout">Logout</Link>
+		              <a onClick={logout}>Logout</a>
 		  				</li>
 		  			</ul>
 		  

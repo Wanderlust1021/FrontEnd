@@ -92,9 +92,15 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   startAuth: () => dispatch(startAuth()),
+<<<<<<< HEAD
   loginSuccess: () => dispatch(loginSuccess()),
   authFailure: error => dispatch(authFailure(error))
 });
+=======
+  loginSuccess: username => dispatch(loginSuccess(username)),
+  authFailure: error => dispatch(authFailure(error)),
+})
+>>>>>>> master
 
 export default connect(
   mapStateToProps,
