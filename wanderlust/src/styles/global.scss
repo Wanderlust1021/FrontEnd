@@ -1,0 +1,33 @@
+
+*, :after, :before {
+		    box-sizing: border-box;
+}
+
+a {
+    color: #3384b7;
+    text-decoration: none;
+}
+
+body {
+  color: #4b4e55;
+  font-family: 'Roboto', sans-serif;
+}
+
+img {
+  margin: 0 auto;
+  display: block;
+  vertical-align: middle;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.experiences-list {
+  padding-top: 1.7em;
+  padding-bottom: 2em;
+  background: #ddd;
+}

@@ -1,0 +1,31 @@
+
+
+.experience-item {
+  background-color: #f5f5f5;
+  width: 100%;
+  padding-top: 2em;
+}
+
+.tab-content >.tab-pane {
+    display: none;
+}
+
+.tab-content >.active {
+    display: block;
+}
+
+.fade.in {
+    opacity: 1;
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity 0.15s linear;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
