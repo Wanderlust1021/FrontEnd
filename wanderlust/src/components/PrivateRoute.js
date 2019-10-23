@@ -3,8 +3,8 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 export const PrivateRoute = (props) => {
-  const { isAuthenticated } = props;
-  const { component: Component, ...rest } = props;
+  const { component: Component, isAuthenticated, ...rest } = props;
+
   return (
     <Route
       {...rest}
@@ -19,8 +19,8 @@ export const PrivateRoute = (props) => {
   );
 }
 
-export const connect(
-  state => {
-    isAuthenticated: state
-  }
-)
+export default connect(
+  state => ({
+    isAuthenticated: state.authState.isAuthenticated
+  })
+)(PrivateRoute);

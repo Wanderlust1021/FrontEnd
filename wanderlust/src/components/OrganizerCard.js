@@ -24,10 +24,9 @@ const OrganizerCard = (props) => {
         </span>
       </Link>
       <div className="panel-description">
-        Hello! I am Neema, a locally born Chinese Singaporean
+        Hello! I am Neema, a locally born Congolese
         with a passion for travelling. I am a budding tourist guide, 
-        but I have been in the travel industry for 13 years.
-        It has been 13 years as I have been travelling around.
+        and I have been in the travel industry for 13 years. 
       </div>
       <Link className="btn-custom btn-panel-button btn-panel-button-wide" href="#">
         <h4>

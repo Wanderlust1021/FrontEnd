@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import PrivateNav from './PrivateNav';
 import OrganizerSidePanel from './OrganizerSidePanel';
 import ExperienceSidePanel from './ExperienceSidePanel';
+import Footer from './Footer';
 
+// Displays info about an experience e.g the organizer of the experience,
+// a description of the experience etc
 const Experience = (props) => {
   return (
     <div>
@@ -28,6 +31,8 @@ const Experience = (props) => {
           </div>
         </div>
       </section>
+
+      <Footer />
 
     </div>
   )

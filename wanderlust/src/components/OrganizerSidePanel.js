@@ -15,11 +15,13 @@ const OrganizerSidePanel = (props) => {
               <span class="text-center price">USD&nbsp;150.00</span>
             </div>
           </div>
+
           <hr className="panel-border" />
 
           <div className="row">
             <div class="col-md-5 duration-label">Duration</div>
           </div>
+
           <div className="row">
             <div class="col-md-12">
               <div class="text-center duration">10&nbsp;hours</div>
@@ -30,10 +32,7 @@ const OrganizerSidePanel = (props) => {
           <div className="row">
             <div class="col-md-12">Rating</div>
           </div>
-          <div className="row">
-          </div>
           <hr className="panel-border" />
-
         </div>
       </div>
 
@@ -71,13 +70,12 @@ const OrganizerSidePanel = (props) => {
             <div className="col-md-12">
               <p>
                 I have been a tour guide for the past 20 years
-                in Malaysia, and I have grown into being a tour operator
+                in Ethiopia, and I have grown into being a tour operator
               </p>
             </div>
           </div>
         </div>
       </div>
-
     </>
   );
 }

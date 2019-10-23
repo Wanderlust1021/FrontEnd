@@ -24,9 +24,13 @@ const Experience = (props) => {
         </span>
       </Link>
       <div className="panel-description">
-        Enjoy Angkor Wat full day tour by Tuk Tuk. The Tuk Tuk is a local way to 
-        travel and tourists can enjoy the natural view while on the tuk tuk.
-        The Tuk Tuk can fit 4 people and offers a lower price to travellers.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+        enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+        in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+        nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+        sunt in culpa qui officia deserunt mollit anim id est laborum
       </div>
       <Link className="btn-custom btn-panel-button btn-panel-button-wide" href="#">
         <h4>

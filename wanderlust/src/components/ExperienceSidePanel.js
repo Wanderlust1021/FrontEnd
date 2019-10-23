@@ -19,20 +19,34 @@ const ExperienceSidePanel = (props) => {
             <div className="row">
               <div className="col-md-12">
                 <p>
-                  Cameron Highlands a hill resort, at 1,500 metres, is in the State of 
-                  Pahang, with Temperatures 10 – 25 degrees C. It was discovered by
-                  Sir William Cameron in 1885, a British Surveyor.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                  enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                  nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                  in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                  nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                  sunt in culpa qui officia deserunt mollit anim id est laborum
                 </p>
 
                 <p>
-                  It has 3 districts Ringlet, Tanah Rata and Ulu Telom with a mixed 
-                  population of 40,000 comprising of entrepreneurs, farm workers,
-                  service industry workers and government servants. 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                  enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                  nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                  in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                  nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                  sunt in culpa qui officia deserunt mollit anim id est laborum
                 </p>
+
               </div>
             </div>
             <hr/>
-            <a class="btn-custom btn-red btn-lg btn-block" style={{color: '#fff'}}>BOOK NOW!</a>
+            <Link 
+              to="/add-experience" 
+              className="btn-custom btn-red btn-lg btn-block"
+              style={{color: '#fff'}}>
+              BOOK NOW!
+            </Link>
           </div>
         </div>
       </div>

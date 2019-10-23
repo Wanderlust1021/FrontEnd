@@ -7,6 +7,7 @@ import HomePage from './components/HomePage';
 import Experiences from './components/Experiences';
 import Experience from './components/Experience';
 import Organizers from './components/Organizers';
+import Organizer from './components/Organizer';
 
 const App = props => {
   return (
@@ -28,6 +29,7 @@ const App = props => {
             </HomePage>
           )
         } />
+        <Route path="/organizers/:id" component={Organizer} />
       </Switch>
     </div>
   )

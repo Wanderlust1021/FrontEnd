@@ -6,7 +6,7 @@ import { withRouter } from "react-router";
 const PrivateNav = ({isAuthenticated, username}) => {
   const logout = () => {}
   return (
-    <header style={{position: 'sticky', top: '0px'}}>
+    <header clasName="pt-1 pb-1" style={{position: 'sticky', top: '0px'}}>
 		<nav className="header-desktop hidden-xs container">
 		  <div class="logo-v2">
 		      <span>

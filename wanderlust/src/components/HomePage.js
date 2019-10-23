@@ -1,7 +1,7 @@
 import React from 'react';
 import PrivateNav from './PrivateNav';
 import SearchBar from './SearchBar';
-import Experiences from './Experiences';
+import Footer from './Footer';
 
 const HomePage = (props) => {
   return (
@@ -9,6 +9,7 @@ const HomePage = (props) => {
       <PrivateNav />
       <SearchBar />
       { props.children }
+      <Footer />
     </div>
   )
 }
