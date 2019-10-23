@@ -38,28 +38,40 @@ export function appReducer(state = initialAppState, action) {
 const initialAuthState = {
   isAuthenticated: false,
   error: null,
-  username: 'johnpaul'
+  username: '',
+  isLoading: false
 };
 
 export const authReducer = (state=initialAuthState, action) => {
     switch(action.type) {
+      case types.AUTH_START:
+        return {
+          ...state,
+          isLoading: true
+        }
+
       case types.LOGIN_SUCCESS:
-      case types.SIGNUP_SUCCESS:
-        debugger
         return {
           ...state,
           isAuthenticated: true,
-          username: action.payload.username
+          isLoading: false
         }
   
-      case types.LOGIN_FAILURE:
-      case types.SIGNUP_FAILURE:
+      case types.SIGNUP_SUCCESS:
+        return {
+          ...state,
+          username: action.payload,
+          isLoading: false
+        }
+  
+      case types.AUTH_FAILURE:
         debugger
         return {
           isAuthenticated: false,
-          error: action.payload.error
+          error: action.payload,
+          isLoading: false
         }
-  
+
       default:
         return state;
     }

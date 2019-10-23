@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 
-const PrivateNav = ({isAuthenticated, username}) => {
+const PrivateNav = (props) => {
+  const { isAuthenticated, username } = props;
   const logout = () => {}
   return (
     <header clasName="pt-1 pb-1" style={{position: 'sticky', top: '0px'}}>
@@ -26,7 +27,7 @@ const PrivateNav = ({isAuthenticated, username}) => {
 		  			</Link>
 		  		</li>
 		  		<li class="about">
-		  			<Link>
+		  			<Link to="#">
 		            { username }
 		  				<span class="caret"></span>
 		  			</Link>

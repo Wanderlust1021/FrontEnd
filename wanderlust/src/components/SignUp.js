@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import * as actionCreators from "../state/ActionCreators";
-import * as reducers from "../state/Reducers";
-import axiosWithAuth from "../axiosWithAuth";
+import { signupSuccess, startAuth, authFailure } from "../state/ActionCreators";
 import axios from "axios";
 import {
   Form,
@@ -14,9 +11,11 @@ import {
   FormLabel
 } from "react-bootstrap";
 
+import { Icon } from 'antd';
+
 const signupUrl = "https://wanderlust-ty.herokuapp.com/api/user/register";
 
-const SignUp = props => {
+const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -29,58 +28,25 @@ const SignUp = props => {
   };
 
   const handleSubmit = event => {
+    startAuth();
     event.preventDefault();
-    console.log(user);
-    // axiosWithAuth()
     axios
       .post(signupUrl, {
         username: user.username,
         password: user.password
       })
       .then(response => {
-        localStorage.setItem("token", response.data.payload);
-        props.history.push("/");
+        debugger
+        signupSuccess(response.data.username)
+        history.push("/auth");
       })
       .catch(error => {
         debugger;
+        authFailure(error.response.data.message)
       });
   };
 
   return (
-    // <div className="input-section">
-    //   <div className="logo-title">
-    //     <Link to="/">Wanderlast</Link>
-    //   </div>
-    //   <div className="input-page">
-    //     <div className="input-header">
-    //       Sign Up
-    //     </div>
-    //     <form className='input-form' onSubmit={handleSubmit}>
-    //       <div className="text-input">
-    //         <label htmlFor="username">Email or Username</label>
-    //         <input
-    //           id="username"
-    //           type='text'
-    //           name='username'
-    //           onChange={handleChange}
-    //           value={user.username}
-    //           required
-    //         />
-    //       </div>
-    //       <div className="password-input">
-    //         <label htmlFor="password">Password</label>
-    //         <input
-    //             type='password'
-    //             name='password'
-    //             onChange={handleChange}
-    //             value={user.password}
-    //             required
-    //           />
-    //       </div>
-    //       <button>Login</button>
-    //     </form>
-    //   </div>
-    // </div>
     <Form>
       <FormGroup controlId="validationFormik01">
         <FormControl
@@ -135,8 +101,8 @@ const SignUp = props => {
           required
         />
       </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Register
+      <Button variant="primary" type="submit" onClick={handleSubmit} className="text-center">
+        {isLoading? <Icon type="loading" /> : `Register`}
       </Button>
     </Form>
   );
@@ -144,11 +110,17 @@ const SignUp = props => {
 
 const mapStateToProps = state => {
   return {
-    test: state.appState.test
+    isLoading: state.authState.isLoading
   };
 };
 
+const mapDispatchToProps = dispatch => ({
+  signupSuccess: username => dispatch(signupSuccess(username)),
+  startAuth: () => dispatch(startAuth()),
+  authFailure: error => dispatch(authFailure(error))
+})
+
 export default connect(
   mapStateToProps,
-  actionCreators
+  mapDispatchToProps
 )(SignUp);

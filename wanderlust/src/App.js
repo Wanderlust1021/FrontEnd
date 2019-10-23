@@ -11,74 +11,32 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Experiences from "./components/Experiences";
 
+import { AuthTest } from './components/AuthTest';
+
 const App = props => {
   return (
-    <WrapDiv>
-    
-      <NavBarStyled>
-        <div>
-          <NavLink
-            to="/experiences"
-            activeStyle={{
-              fontWeight: "bold",
-              color: "#0069d9",
-              fontFamily: "ABeeZee"
-            }}
-          >
-            <h6> explore experiences </h6>
-          </NavLink>
-        </div>
-        <div>
-          <NavLink
-            to="/"
-            activeStyle={{
-              fontWeight: "bold",
-              color: "#0069d9",
-              fontFamily: "ABeeZee"
-            }}
-          >
-            <h5> log in </h5>
-          </NavLink>
-        </div>
-        <div>
-          <NavLink
-            to="/signUp"
-            activeStyle={{
-              fontWeight: "bold",
-              color: "white",
-              fontFamily: "ABeeZee"
-            }}
-          >
-            <h5> sign up </h5>
-          </NavLink>
-          <div>
-            <NavLink to="/">
-              <h5>log out</h5>
-            </NavLink>
-          </div>
-        </div>
-      </NavBarStyled>
-
-      <PrivateRoute path="/experiences" component={Experiences} />
-      <MainStyled>
-        <Route exact path="/" render={props => <Login {...props} />} />
-        <div>
-          <div>
-            <h6>
-              <Link to="/signUp"> Don't have an account? Sign Up </Link>
-            </h6>
-          </div>
-        </div>
-        <Route exact path="/signUp" render={props => <SignUp {...props} />} />
-      </MainStyled>
-    </WrapDiv>
-  );
-};
-
-const mapStateToProps = state => {
-  return {
-    test: state.appState.test
-  };
+    <div>
+      <Switch>
+        <Route  path="/auth" component={AuthTest} />
+        <Route exact path="/experiences" render={
+          props => (
+            <HomePage {...props} >
+              <Experiences />
+            </HomePage>
+          )
+        } />
+        <Route path="/experiences/:id" component={Experience} />
+        <Route exact path="/organizers" render={
+          props => (
+            <HomePage {...props}>
+              <Organizers />
+            </HomePage>
+          )
+        } />
+        <Route path="/organizers/:id" component={Organizer} />
+      </Switch>
+    </div>
+  )
 };
 
 export default connect(
