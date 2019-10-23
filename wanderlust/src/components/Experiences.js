@@ -1,24 +1,34 @@
-import React from 'react';
-import ExperienceCard from './ExperienceCard';
+import React, { useState, useEffect } from "react";
+import axiosWithAuth from "../axiosWithAuth";
 
-const Experiences = (props) => {
-  let experiences = [1,2,3,4,5,6];
+function Experiences(props) {
+  const [experiences, setExperiences] = useState([]);
 
-  return(
-    <main className='experiences-list'>
-      <div className="container">
-        <div className="row">
-          {
-            experiences.map((experience, id) => (
-            <div className="col-md-4" key={id}>
-              <ExperienceCard />
+  useEffect(() => {
+    axiosWithAuth()
+      .get("/exp")
+      .then(response => {
+        setExperiences(response.data);
+      });
+  }, []);
+
+  return (
+    experiences && (
+      <div >
+        {experiences.map(el => (
+          <div key={el.org_name}>
+            {el.org_name}
+            <p>{el.date}</p>
+            <p>{el.experience_desc}</p>
+            <div>
+              <img src={el.date} />
             </div>
-            ))
-          }
-        </div>
+            {el.experience_title}
+          </div>
+        ))}
       </div>
-    </main>
-  )
+    )
+  );
 }
 
 export default Experiences;

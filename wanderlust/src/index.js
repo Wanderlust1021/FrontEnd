@@ -9,8 +9,7 @@ import App from "./App";
 import * as reducers from "./state/Reducers";
 
 const allReducers = combineReducers({
-  authState: reducers.authReducer,
-  appState: reducers.appReducer,
+  appState: reducers.experienceReducer
 });
 
 const store = createStore(

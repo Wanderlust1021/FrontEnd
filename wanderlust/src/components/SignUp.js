@@ -83,10 +83,20 @@ const SignUp = props => {
     // </div>
     <Form>
       <FormGroup controlId="validationFormik01">
-        <FormControl name="firstName" type="text" placeholder="First Name" />
+        <FormControl
+          name="firstName"
+          type="text"
+          placeholder="First Name"
+          required
+        />
       </FormGroup>
       <FormGroup controlId="validationFormik02">
-        <FormControl name="lastName" type="text" placeholder="Last Name" />
+        <FormControl
+          name="lastName"
+          type="text"
+          placeholder="Last Name"
+          required
+        />
       </FormGroup>
       <FormGroup controlId="ValidationFormikUsername">
         <FormControl
@@ -95,10 +105,11 @@ const SignUp = props => {
           placeholder="Username"
           value={user.username}
           onChange={handleChange}
+          required
         />
       </FormGroup>
       <FormGroup controlId="ValidationFormikEmail">
-        <FormControl type="email" placeholder="Enter email" />
+        <FormControl type="email" placeholder="Enter email" required />
         <FormText className="text-muted">
           We'll never share your email with anyone else.
         </FormText>
@@ -111,13 +122,18 @@ const SignUp = props => {
           placeholder="Password"
           value={user.password}
           onChange={handleChange}
+          required
         />
         <Form.Text className="text-muted">
           Must be at least 8 characters.
         </Form.Text>
       </Form.Group>
       <Form.Group controlId="FormBasicCheckbox">
-        <Form.Check type="checkbox" label="Accept Terms & Conditions" />
+        <Form.Check
+          type="checkbox"
+          label="Accept Terms & Conditions"
+          required
+        />
       </Form.Group>
       <Button variant="primary" type="submit" onClick={handleSubmit}>
         Register
