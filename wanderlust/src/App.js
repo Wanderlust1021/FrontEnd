@@ -1,15 +1,25 @@
 import React from "react";
-import { Route, NavLink, Link } from "react-router-dom";
+import { Route, NavLink, Link, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actionCreators from "./State/ActionCreators";
+import * as actionCreators from "./state/ActionCreators";
 import PrivateRoute from "./PrivateRoute";
 import styled from "styled-components";
-import img from "./Images/forestGreen.png";
+import img from "./images/forestGreen.png";
 
 // components
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Experiences from "./components/Experiences";
+import Experience from "./components/Experience";
+import Organizer from "./components/Organizer";
+import Organizers from "./components/Organizers";
+
+import HomePage from "./components/HomePage";
+import Footer from "./components/Footer";
+
+
+
+
 
 import { AuthTest } from './components/AuthTest';
 
@@ -37,6 +47,12 @@ const App = props => {
       </Switch>
     </div>
   )
+};
+
+const mapStateToProps = state => {
+  return {
+    experiences: state.appState
+  };
 };
 
 export default connect(

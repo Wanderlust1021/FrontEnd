@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../axiosWithAuth";
+import { connect } from "react-redux";
+import * as actionCreators from "../state/ActionCreators";
 
-function Experiences(props) {
+
+export function Experiences(props) {
+  console.log(props)
   const [experiences, setExperiences] = useState([]);
 
   useEffect(() => {
-    axiosWithAuth()
-      .get("/exp")
-      .then(response => {
-        setExperiences(response.data);
-      });
+    props.fetchExperiences()
   }, []);
 
   return (
     experiences && (
       <div >
-        {experiences.map(el => (
+        {/* {experiences.map(el => (
           <div key={el.org_name}>
             {el.org_name}
             <p>{el.date}</p>
@@ -25,10 +25,19 @@ function Experiences(props) {
             </div>
             {el.experience_title}
           </div>
-        ))}
+        ))} */}
       </div>
     )
   );
 }
 
-export default Experiences;
+const mapStateToProps = state => {
+  return {
+    experiences: state.appState
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(Experiences);

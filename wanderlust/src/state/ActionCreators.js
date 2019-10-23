@@ -14,6 +14,12 @@ export const fetchExperience = () => dispatch => {
     });
 };
 
+// const addExperience = e => dispatch => {
+//   e.preventDefault();
+//   axiosWithAuth()
+//     .post("/org/register", );
+// };
+
 export const deleteExperience = () => dispatch => {
   dispatch({});
   axiosWithAuth()
@@ -41,25 +47,25 @@ export const updateExperience = () => dispatch => {
 export const startAuth = () => {
   return {
     type: types.AUTH_START
-  }
-}
+  };
+};
 
 export const loginSuccess = () => {
-  return { 
-     type: types.LOGIN_SUCCESS
-   }
- }
+  return {
+    type: types.LOGIN_SUCCESS
+  };
+};
 
-export const signupSuccess = (data) => {
+export const signupSuccess = data => {
   return {
     type: types.SIGNUP_SUCCESS,
     payload: data
-  }
-}
+  };
+};
 
-export const authFailure = (data) => {
- return { 
-   type: types.AUTH_FAILURE,
-   payload: data
- }
-}
+export const authFailure = data => {
+  return {
+    type: types.AUTH_FAILURE,
+    payload: data
+  };
+};

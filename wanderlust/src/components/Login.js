@@ -11,11 +11,17 @@ import {
   FormLabel,
   Form
 } from "react-bootstrap";
-import { Icon } from 'antd';
+import { Icon } from "antd";
 
 const loginUrl = "https://wanderlust-ty.herokuapp.com/api/user/login";
 
-const Login = ({startAuth, loginSuccess, authFailure, isLoading, history}) => {
+const Login = ({
+  startAuth,
+  loginSuccess,
+  authFailure,
+  isLoading,
+  history
+}) => {
   const initalState = { username: "", password: "" };
   const [user, setUser] = useState(initalState);
 
@@ -29,16 +35,16 @@ const Login = ({startAuth, loginSuccess, authFailure, isLoading, history}) => {
     event.preventDefault();
     axiosWithAuth()
       .post("/user/login", user)
-      .then(response => { console.log(user)
-        debugger
+      .then(response => {
+        console.log(user);
+        debugger;
         localStorage.setItem("token", response.data.token);
-        loginSuccess()
+        loginSuccess();
         history.push("/experiences");
-   
       })
       .catch(error => {
-        debugger
-        authFailure(error.response.data.message)
+        debugger;
+        authFailure(error.response.data.message);
       });
 
     setUser(initalState);
@@ -68,24 +74,27 @@ const Login = ({startAuth, loginSuccess, authFailure, isLoading, history}) => {
         />
       </FormGroup>
 
-      <Button variant="primary" type="submit" onClick={handleSubmit} className="text-center">
-        {isLoading? <Icon type="loading" /> : `Login`}
+      <Button
+        variant="primary"
+        type="submit"
+        onClick={handleSubmit}
+        className="text-center"
+      >
+        {isLoading ? <Icon type="loading" /> : `Login`}
       </Button>
     </Form>
   );
 };
 
 const mapStateToProps = state => ({
-    error: state.authState.error,
-    isLoading: state.authState.isLoading
+  error: state.authState.error,
+  isLoading: state.authState.isLoading
 });
-
-
 const mapDispatchToProps = dispatch => ({
   startAuth: () => dispatch(startAuth()),
   loginSuccess: () => dispatch(loginSuccess()),
   authFailure: error => dispatch(authFailure(error))
-})
+});
 
 export default connect(
   mapStateToProps,
