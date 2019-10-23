@@ -4,11 +4,10 @@ const initialAppState = {
   appState: [],
   isLoading: false,
   error: null,
-  test: "its working"
 };
 
 
-export function appReducer(state = initialAppState, action) {
+export function experienceReducer(state = initialAppState, action) {
   switch (action.type) {
      case types.FETCH_DATA:
          return {

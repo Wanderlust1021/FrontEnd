@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actionCreators from "./State/ActionCreators";
+import * as actionCreators from "./state/ActionCreators";
 import PrivateRoute from "./PrivateRoute";
 import styled from "styled-components";
-import img from "./Images/forestGreen.png";
+import img from "./images/forestGreen.png";
 
 // components
 import Login from "./components/Login";
@@ -59,7 +59,7 @@ const App = props => {
         </div>
       </NavBarStyled>
 
-      <PrivateRoute path="/experiences" component={Experiences} />
+      <PrivateRoute path="/experiences" render={Experiences} />
       <MainStyled>
         <Route exact path="/" render={props => <Login {...props} />} />
         <div>

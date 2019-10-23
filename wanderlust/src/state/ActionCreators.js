@@ -2,7 +2,7 @@ import * as types from "./Actions";
 import axios from "axios";
 import axiosWithAuth from "../axiosWithAuth";
 
-export const fetchExperience = () => dispatch => {
+export const fetchExperiences = () => dispatch => {
   dispatch({ type: types.FETCH_DATA });
   axiosWithAuth()
     .get("/exp")
@@ -14,7 +14,7 @@ export const fetchExperience = () => dispatch => {
     });
 };
 
-export const deleteExperience = () => dispatch => {
+export const deleteExperiences = () => dispatch => {
   dispatch({});
   axiosWithAuth()
     .delete("")
