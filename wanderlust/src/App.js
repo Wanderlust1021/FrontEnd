@@ -44,6 +44,12 @@ const App = props => {
           )
         } />
         <Route path="/organizers/:id" component={Organizer} />
+        <Route
+        path="/experiences/:id"
+        render={props => (
+          <UpdateExperienceForm {...props} />
+        )}
+      />
       </Switch>
     </div>
   )
