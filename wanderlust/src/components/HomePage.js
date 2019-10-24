@@ -3,6 +3,7 @@ import PrivateNav from './PrivateNav';
 import SearchBar from './SearchBar';
 import Footer from './Footer';
 
+
 const HomePage = (props) => {
   return (
     <div>

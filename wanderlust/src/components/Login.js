@@ -4,6 +4,7 @@ import { loginSuccess, authFailure, startAuth } from "../state/ActionCreators";
 import * as reducers from "../state/Reducers";
 import axiosWithAuth from "../axiosWithAuth";
 import axios from "axios";
+
 import {
   Button,
   FormGroup,
@@ -15,13 +16,9 @@ import { Icon } from "antd";
 
 const loginUrl = "https://wanderlust-ty.herokuapp.com/api/user/login";
 
-const Login = ({
-  startAuth,
-  loginSuccess,
-  authFailure,
-  isLoading,
-  history
-}) => {
+
+const Login = (props) => {
+  const {startAuth, loginSuccess, authFailure, isLoading, history} = props;
   const initalState = { username: "", password: "" };
   const [user, setUser] = useState(initalState);
 

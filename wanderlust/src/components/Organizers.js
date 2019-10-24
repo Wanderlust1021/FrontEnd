@@ -2,6 +2,7 @@ import React from 'react';
 import OrganizerCard from './OrganizerCard';
 import HomePage from './HomePage';
 
+
 const Organizers = (props) => {
   let organizers = [1,2,3,4,5,6];
 

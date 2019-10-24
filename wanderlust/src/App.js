@@ -21,8 +21,8 @@ import Footer from "./components/Footer";
 
 
 
-
 const App = props => {
+
   return (
     <div>
       <Switch>
@@ -54,6 +54,7 @@ const App = props => {
       </Switch>
     </div>
   )
+
 };
 
 const mapStateToProps = state => {

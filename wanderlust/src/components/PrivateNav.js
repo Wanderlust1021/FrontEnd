@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import logo from '../images/Logo-Black.jpg';
 
+
 const PrivateNav = (props) => {
   const username = props.username || localStorage.getItem('username');
   const logout = () => {
