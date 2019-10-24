@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { signupSuccess, startAuth, authFailure } from "../state/ActionCreators";
 import axios from "axios";
+import axiosWithAuth from "../axiosWithAuth";
 import {
   Form,
   Button,
@@ -20,7 +21,8 @@ const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
   const [user, setUser] = useState({
     username: "",
     email: "",
-    password: ""
+    password: "",
+    organizer: false
   });
 
   const handleChange = event => {
@@ -29,16 +31,18 @@ const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
   };
 
   const handleSubmit = event => {
+    debugger
     startAuth();
     event.preventDefault();
-    axios
-      .post(signupUrl, {
+    axiosWithAuth()
+      .post('/user/register', {
         username: user.username,
         password: user.password
       })
       .then(response => {
         debugger
         signupSuccess(response.data.username)
+        localStorage.setItem('user', JSON.stringify(response.data));
         history.push("/auth");
       })
       .catch(error => {
@@ -84,7 +88,12 @@ const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
         </Form.Text>
       </Form.Group>
       <Form.Group controlId="FormBasicCheckbox">
-        <Form.Check type="checkbox" label="Accept Terms & Conditions" />
+        <Form.Check 
+          name="organizer"
+          type="checkbox" 
+          label="Sign up as an organizer"
+          onChange={handleChange}
+        />
       </Form.Group>
       <Button variant="primary" type="submit" onClick={handleSubmit} className="text-center">
         {isLoading? <Icon type="loading" /> : `Register`}

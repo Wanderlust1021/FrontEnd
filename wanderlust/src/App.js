@@ -8,6 +8,7 @@ import Experience from './components/Experience';
 import Organizers from './components/Organizers';
 import Organizer from './components/Organizer';
 import PrivateRoute from './components/PrivateRoute';
+import AddExperience from './components/AddNewExperience';
 
 const App = props => {
 
@@ -15,6 +16,7 @@ const App = props => {
     <div>
       <Switch>
         <Route  path="/auth" component={Authentication} />
+        <PrivateRoute exact path="/experiences/new" component={AddExperience}/>
         <PrivateRoute exact path="/experiences" component={Experiences}/>
         <PrivateRoute path="/experiences/:id" component={Experience} />
         <PrivateRoute exact path="/organizers" component={Organizers} />

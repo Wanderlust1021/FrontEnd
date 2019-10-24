@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import ExperienceCard from './ExperienceCard';
 import HomePage from './HomePage';
+import * as actionCreators from "../state/ActionCreators";
 
 
 const Experiences = (props) => {
-  let experiences = [1,2,3,4,5,6];
+  const { experiences, fetchExperiences } = props;
+
+  useEffect(() => {
+    fetchExperiences();
+  }, []);
 
   return(
     <HomePage>
@@ -12,9 +18,9 @@ const Experiences = (props) => {
         <div className="container">
           <div className="row">
             {
-              experiences.map((experience, id) => (
+              experiences && experiences.map((experience, id) => (
               <div className="col-md-4" key={id}>
-                <ExperienceCard />
+                <ExperienceCard experience={experience}/>
               </div>
               ))
             }
@@ -25,4 +31,13 @@ const Experiences = (props) => {
   )
 }
 
-export default Experiences;
+const mapStateToProps = state => {
+  return {
+    experiences: state.appState.data
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(Experiences);

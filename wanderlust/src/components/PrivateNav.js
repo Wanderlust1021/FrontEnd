@@ -7,6 +7,7 @@ import logo from '../images/Logo-Black.jpg';
 
 const PrivateNav = (props) => {
   const username = props.username || localStorage.getItem('username');
+  const user  = JSON.parse(localStorage.getItem('user'));
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
@@ -14,7 +15,7 @@ const PrivateNav = (props) => {
   }
 
   return (
-    <header className="pt-1 pb-1" style={{position: 'sticky', top: '0px'}}>
+    <header className="pt-1 pb-1">
 		<nav className="header-desktop hidden-xs container">
 		  <div class="logo-v2">
 		      <img src={logo} />
