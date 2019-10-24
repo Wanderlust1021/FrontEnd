@@ -11,6 +11,7 @@ import PrivateNav from './PrivateNav';
 import Footer from './Footer';
 import ExperienceCard from './ExperienceCard';
 
+
 // Displays info for a specific organizer
 const Organizer = (props) => {
 

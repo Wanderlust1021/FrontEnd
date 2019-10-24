@@ -9,8 +9,8 @@ import Organizers from './components/Organizers';
 import Organizer from './components/Organizer';
 import PrivateRoute from './components/PrivateRoute';
 
-
 const App = props => {
+
   return (
     <div>
       <Switch>
@@ -22,6 +22,7 @@ const App = props => {
       </Switch>
     </div>
   )
+
 };
 
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import img from '../images/profile.jpg';
 
+
 const OrganizerCard = (props) => {
 
   return (

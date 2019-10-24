@@ -11,6 +11,7 @@ import {
   FormLabel
 } from "react-bootstrap";
 
+
 import { Icon } from 'antd';
 
 const signupUrl = "https://wanderlust-ty.herokuapp.com/api/user/register";
