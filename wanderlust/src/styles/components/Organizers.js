@@ -1,10 +1,10 @@
 import React from 'react';
-import ExperienceCard from './ExperienceCard';
+import OrganizerCard from './OrganizerCard';
 import HomePage from './HomePage';
 
 
-const Experiences = (props) => {
-  let experiences = [1,2,3,4,5,6];
+const Organizers = (props) => {
+  let organizers = [1,2,3,4,5,6];
 
   return(
     <HomePage>
@@ -12,9 +12,9 @@ const Experiences = (props) => {
         <div className="container">
           <div className="row">
             {
-              experiences.map((experience, id) => (
+              organizers.map((experience, id) => (
               <div className="col-md-4" key={id}>
-                <ExperienceCard />
+                <OrganizerCard />
               </div>
               ))
             }
@@ -25,4 +25,4 @@ const Experiences = (props) => {
   )
 }
 
-export default Experiences;
+export default Organizers;
