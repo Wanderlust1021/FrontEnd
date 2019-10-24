@@ -4,37 +4,34 @@ import img from '../images/experience.jpg';
 
 
 const Experience = (props) => {
-  const {
-    org_name,
-    experience_title,
-    experience_desc,
-    image
-  } = props.experience;
-
-  let imgUrl = image || img;
-
 
   return (
     <div className="panel-card">
       <Link>
         <img 
           className="display-image" 
-          src={imgUrl}
+          src={img}
           alt="sample experience"
         />
       </Link>
       <Link className="text-center">
         <h2 className="panel-title">
-          { experience_title }
+          A visit to a traditional moran home stead
         </h2>
         <span className="panel-location">
           <h4>
-            { org_name }
+            Kenya(location)
           </h4>
         </span>
       </Link>
       <div className="panel-description">
-        { experience_desc }
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+        enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+        in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+        nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+        sunt in culpa qui officia deserunt mollit anim id est laborum
       </div>
       <Link className="btn-custom btn-panel-button btn-panel-button-wide" href="#">
         <h4>

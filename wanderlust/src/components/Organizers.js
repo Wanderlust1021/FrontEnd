@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import OrganizerCard from './OrganizerCard';
 import HomePage from './HomePage';
+import { connect } from 'react-redux';
+import * as actionCreators from "../state/ActionCreators";
+
 
 const Organizers = (props) => {
-  let organizers = [1,2,3,4,5,6];
+  const { organizers, fetchOrganizers } = props;
+
+  useEffect(() => {
+    fetchOrganizers();
+  }, []);
+
 
   return(
     <HomePage>
@@ -11,9 +19,9 @@ const Organizers = (props) => {
         <div className="container">
           <div className="row">
             {
-              organizers.map((experience, id) => (
+              organizers && organizers.map((organizer, id) => (
               <div className="col-md-4" key={id}>
-                <OrganizerCard />
+                <OrganizerCard organizer={organizer}/>
               </div>
               ))
             }
@@ -24,4 +32,13 @@ const Organizers = (props) => {
   )
 }
 
-export default Organizers;
+const mapStateToProps = state => {
+  return {
+    organizers: state.appState.data
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(Organizers);

@@ -2,36 +2,19 @@ import * as types from "./Actions";
 import axios from "axios";
 import axiosWithAuth from "../axiosWithAuth";
 
-export const fetchExperiences = () => dispatch => {
+export const fetchData = () => dispatch => {
   dispatch({ type: types.FETCH_DATA });
-  axiosWithAuth()
-    .get("/exp")
+  axios
+    .get("")
     .then(res => {
-      debugger
       dispatch({ type: types.FETCHED_SUCCESSFULLY, payload: res.data });
     })
     .catch(err => {
-      debugger
       dispatch({ type: types.FETCH_FAILED, payload: err.response });
     });
 };
 
-
-export const fetchOrganizers = () => dispatch => {
-  dispatch({ type: types.FETCH_DATA });
-  axiosWithAuth()
-    .get("/org")
-    .then(res => {
-      debugger
-      dispatch({ type: types.FETCHED_SUCCESSFULLY, payload: res.data });
-    })
-    .catch(err => {
-      debugger
-      dispatch({ type: types.FETCH_FAILED, payload: err.response });
-    });
-};
-
-export const deleteExperiences = () => dispatch => {
+export const deleteExperience = () => dispatch => {
   dispatch({});
   axiosWithAuth()
     .delete("")

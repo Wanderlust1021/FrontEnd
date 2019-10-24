@@ -10,7 +10,7 @@ import * as reducers from "./state/Reducers";
 
 const allReducers = combineReducers({
   authState: reducers.authReducer,
-  appState: reducers.experienceReducer,
+  experiences: reducers.experienceReducer,
 });
 
 const store = createStore(

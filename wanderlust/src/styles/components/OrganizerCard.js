@@ -1,40 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import img from '../images/experience.jpg';
+import img from '../images/profile.jpg';
 
 
-const Experience = (props) => {
-  const {
-    org_name,
-    experience_title,
-    experience_desc,
-    image
-  } = props.experience;
-
-  let imgUrl = image || img;
-
+const OrganizerCard = (props) => {
 
   return (
     <div className="panel-card">
       <Link>
         <img 
-          className="display-image" 
-          src={imgUrl}
+          className="display-image display-organizer-image" 
+          src={img}
           alt="sample experience"
         />
       </Link>
       <Link className="text-center">
         <h2 className="panel-title">
-          { experience_title }
+          Name of organizer
         </h2>
         <span className="panel-location">
           <h4>
-            { org_name }
+            Country
           </h4>
         </span>
       </Link>
       <div className="panel-description">
-        { experience_desc }
+        Hello! I am Neema, a locally born Congolese
+        with a passion for travelling. I am a budding tourist guide, 
+        and I have been in the travel industry for 13 years. 
       </div>
       <Link className="btn-custom btn-panel-button btn-panel-button-wide" href="#">
         <h4>
@@ -51,4 +44,4 @@ const Experience = (props) => {
 
 }
 
-export default Experience;
+export default OrganizerCard;
