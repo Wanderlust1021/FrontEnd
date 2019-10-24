@@ -19,7 +19,7 @@ const loginUrl = "https://wanderlust-ty.herokuapp.com/api/user/login";
 
 const Login = (props) => {
   const {startAuth, loginSuccess, authFailure, isLoading, history} = props;
-  const initalState = { username: "", password: "" };
+  const initalState = { username: "", password: "", organizer: '' };
   const [user, setUser] = useState(initalState);
 
   const handleChange = event => {
@@ -31,16 +31,28 @@ const Login = (props) => {
     startAuth();
     event.preventDefault();
     axiosWithAuth()
-      .post("/user/login", user)
+      .post('/user/login', user)
       .then(response => {
         debugger
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("username", user.username);
-        loginSuccess(user.username)
+        localStorage.setItem('user', JSON.stringify(response.data));
+        if (user.organizer){
+            localStorage.setItem("organizer", user.organizer)
+            localStorage.removeItem("username");
+        } else {
+            localStorage.removeItem("organizer")
+            localStorage.setItem("username", user.username);
+        }       
+        let data = {organizer: '', username: ''};
+        if ( user.organizer == 'on'){
+          data.organizer = user.username
+        } else {
+          data.username = user.username;
+        }
+        loginSuccess(data)
         history.push("/experiences");
       })
       .catch(error => {
-        debugger
         authFailure(error.response.data.message)
       });
 
@@ -53,7 +65,7 @@ const Login = (props) => {
         <FormControl
           name="username"
           type="name"
-          placeholder="Username"
+          placeholder="Username/Organization name"
           onChange={handleChange}
           value={user.username}
           required
@@ -70,6 +82,14 @@ const Login = (props) => {
           required
         />
       </FormGroup>
+      <Form.Group controlId="FormBasicCheckbox">
+        <Form.Check 
+          type="checkbox" 
+          name="organizer" 
+          label="Sign in as an organizer"
+          onChange={handleChange}
+        />
+      </Form.Group>
 
       <Button variant="primary" type="submit" onClick={handleSubmit} className="text-center">
         {isLoading? <Icon type="loading" /> : `Login`}

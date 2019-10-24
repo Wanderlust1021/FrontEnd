@@ -4,6 +4,7 @@ import img from '../images/profile.jpg';
 
 
 const OrganizerCard = (props) => {
+  const { org_name } = props.organizer;
 
   return (
     <div className="panel-card">
@@ -16,18 +17,19 @@ const OrganizerCard = (props) => {
       </Link>
       <Link className="text-center">
         <h2 className="panel-title">
-          Name of organizer
+          { org_name }
         </h2>
         <span className="panel-location">
           <h4>
-            Country
           </h4>
         </span>
       </Link>
       <div className="panel-description">
-        Hello! I am Neema, a locally born Congolese
-        with a passion for travelling. I am a budding tourist guide, 
-        and I have been in the travel industry for 13 years. 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+        enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+        in reprehenderit in voluptate velit esse cillum dolore eu fugiat
       </div>
       <Link className="btn-custom btn-panel-button btn-panel-button-wide" href="#">
         <h4>

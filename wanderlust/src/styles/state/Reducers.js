@@ -1,7 +1,8 @@
 import * as types from "./Actions";
 
 const initialAppState = {
-  appState: [],
+  experiences: [],
+  organizers: [],
   isLoading: false,
   error: null
 };
@@ -18,11 +19,12 @@ export function experienceReducer(state = initialAppState, action) {
       return {
         ...state,
         isLoading: false,
-        appState: action.payload
+        experiences: action.payload
       };
     case types.FETCH_FAILED:
       return {
         ...state,
+        isLoading: false,
         error: action.payload
       };
 

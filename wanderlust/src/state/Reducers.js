@@ -1,7 +1,9 @@
 import * as types from "./Actions";
 
 const initialAppState = {
-  appState: [],
+  experiences: [],
+  organizers: [],
+  data: [],
   isLoading: false,
   error: null
 };
@@ -18,7 +20,7 @@ export function experienceReducer(state = initialAppState, action) {
       return {
         ...state,
         isLoading: false,
-        appState: action.payload
+        data: action.payload
       };
     case types.FETCH_FAILED:
       return {
@@ -35,6 +37,7 @@ const initialAuthState = {
   isAuthenticated: false,
   error: null,
   username: '',
+  orgname: '',
   isLoading: false
 };
 
@@ -51,7 +54,8 @@ export const authReducer = (state=initialAuthState, action) => {
           ...state,
           isAuthenticated: true,
           isLoading: false,
-          username: action.payload
+          username: action.payload.username,
+          orgname: action.payload.organization
         }
   
       case types.SIGNUP_SUCCESS:
