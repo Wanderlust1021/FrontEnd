@@ -7,7 +7,6 @@ export const fetchExperiences = () => dispatch => {
   axiosWithAuth()
     .get("/exp")
     .then(res => {
-      debugger
       dispatch({ type: types.FETCHED_SUCCESSFULLY, payload: res.data });
     })
     .catch(err => {
@@ -22,7 +21,6 @@ export const fetchOrganizers = () => dispatch => {
   axiosWithAuth()
     .get("/org")
     .then(res => {
-      debugger
       dispatch({ type: types.FETCHED_SUCCESSFULLY, payload: res.data });
     })
     .catch(err => {
@@ -32,28 +30,31 @@ export const fetchOrganizers = () => dispatch => {
 };
 
 export const deleteExperiences = () => dispatch => {
-  dispatch({});
   axiosWithAuth()
-    .delete("")
+    .delete("exp/:id")
     .then(res => {
-      dispatch({});
+      dispatch({ types : types.DELETE_EXPERIENCE, payload : res.data
+           
+      });
     })
     .catch(err => {
       dispatch({});
     });
 };
 
-export const updateExperience = () => dispatch => {
-  dispatch({});
-  axiosWithAuth()
-    .put("")
-    .then(res => {
-      dispatch({});
-    })
-    .catch(err => {
-      dispatch({});
-    });
-};
+// export const updateExperience = () => dispatch => {
+//   dispatch({});
+//   axiosWithAuth()
+//     .put("")
+//     .then(res => {
+//       dispatch({
+
+//       });
+//     })
+//     .catch(err => {
+//       dispatch({});
+//     });
+// };
 
 export const startAuth = () => {
   return {

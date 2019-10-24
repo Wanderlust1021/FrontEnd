@@ -31,7 +31,6 @@ const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
   };
 
   const handleSubmit = event => {
-    debugger
     startAuth();
     event.preventDefault();
     axiosWithAuth()
@@ -40,7 +39,6 @@ const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
         password: user.password
       })
       .then(response => {
-        debugger
         signupSuccess(response.data.username)
         localStorage.setItem('user', JSON.stringify(response.data));
         history.push("/auth");

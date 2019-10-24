@@ -26,12 +26,10 @@ const AddExperience = (props) => {
   }
 
   const handleSubmit = event => {
-    debugger
     event.preventDefault();
     axiosWithAuth()
       .post(`/org/${user.id}/exp`, experience)
       .then(response => {
-        debugger
           
       })
       .catch(error => {

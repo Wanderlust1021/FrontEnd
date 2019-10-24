@@ -26,7 +26,7 @@ export const Authentication = props => {
               fontFamily: "ABeeZee"
             }}
           >
-            <h5> SIGN IN </h5>
+            <h5> Log In </h5>
           </NavLink>
           <NavLink
             to={`${url}/signup`}
@@ -36,7 +36,7 @@ export const Authentication = props => {
               fontFamily: "ABeeZee"
             }}
           >
-            <h5> JOIN </h5>
+            <h5> Sign Up </h5>
           </NavLink>
         </NavBarStyled>
         <Switch>

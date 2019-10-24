@@ -20,9 +20,9 @@ export const MainStyled = styled.main`
   min-height: 40vh;
   max-width: 350px;
   margin: 70px auto;
-  background: #a9d3e9;
+  background: white;
   padding: 15px;
-  opacity: 0.85;
+  opacity: 0.95;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   &:hover {
     cursor: pointer;

@@ -37,7 +37,6 @@ const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
         password: user.password
       })
       .then(response => {
-        debugger
         signupSuccess(response.data.username)
         history.push("/auth");
       })

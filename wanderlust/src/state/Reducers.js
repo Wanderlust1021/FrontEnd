@@ -27,6 +27,11 @@ export function experienceReducer(state = initialAppState, action) {
         ...state,
         error: action.payload
       };
+    case types.DELETE_EXPERIENCE:
+      return {
+        ...state,
+        data: action.payload,
+      };
 
     default:
       return state;
@@ -36,44 +41,44 @@ export function experienceReducer(state = initialAppState, action) {
 const initialAuthState = {
   isAuthenticated: false,
   error: null,
-  username: '',
-  orgname: '',
+  username: "",
+  orgname: "",
   isLoading: false
 };
 
-export const authReducer = (state=initialAuthState, action) => {
-    switch(action.type) {
-      case types.AUTH_START:
-        return {
-          ...state,
-          isLoading: true
-        }
+export const authReducer = (state = initialAuthState, action) => {
+  switch (action.type) {
+    case types.AUTH_START:
+      return {
+        ...state,
+        isLoading: true
+      };
 
-      case types.LOGIN_SUCCESS:
-        return {
-          ...state,
-          isAuthenticated: true,
-          isLoading: false,
-          username: action.payload.username,
-          orgname: action.payload.organization
-        }
-  
-      case types.SIGNUP_SUCCESS:
-        return {
-          ...state,
-          username: action.payload,
-          isLoading: false
-        }
-  
-      case types.AUTH_FAILURE:
-        debugger
-        return {
-          isAuthenticated: false,
-          error: action.payload,
-          isLoading: false
-        }
+    case types.LOGIN_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: true,
+        isLoading: false,
+        username: action.payload.username,
+        orgname: action.payload.organization
+      };
 
-      default:
-        return state;
-    }
+    case types.SIGNUP_SUCCESS:
+      return {
+        ...state,
+        username: action.payload,
+        isLoading: false
+      };
+
+    case types.AUTH_FAILURE:
+      debugger;
+      return {
+        isAuthenticated: false,
+        error: action.payload,
+        isLoading: false
+      };
+
+    default:
+      return state;
   }
+};

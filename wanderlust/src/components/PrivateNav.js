@@ -17,11 +17,11 @@ const PrivateNav = (props) => {
   return (
     <header className="pt-1 pb-1">
 		<nav className="header-desktop hidden-xs container">
-		  <div class="logo-v2">
+		  <div className="logo-v2">
 		      <img src={logo} />
 		  </div>
-		  <div class="menu-v2">
-		  	<ul class="main-menu">
+		  <div className="menu-v2">
+		  	<ul className="main-menu">
 		  		<li>
             <Link to="/experiences">
 		  			  Experiences
@@ -32,12 +32,12 @@ const PrivateNav = (props) => {
 		  			  Organizers
 		  			</Link>
 		  		</li>
-		  		<li class="about">
+		  		<li className="about">
 		  			<Link to="#">
 		            { username }
-		  				<span class="caret"></span>
+		  				<span className="caret"></span>
 		  			</Link>
-		  			<ul class="sub-menu">
+		  			<ul className="sub-menu">
 		  				<li>
                 <Link to="/experiences">Home</Link>
 		  				</li>

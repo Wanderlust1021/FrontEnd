@@ -33,14 +33,12 @@ const Login = (props) => {
     axiosWithAuth()
       .post("/user/login", user)
       .then(response => {
-        debugger
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("username", user.username);
         loginSuccess(user.username)
         history.push("/experiences");
       })
       .catch(error => {
-        debugger
         authFailure(error.response.data.message)
       });
 
@@ -71,7 +69,7 @@ const Login = (props) => {
         />
       </FormGroup>
 
-      <Button variant="primary" type="submit" onClick={handleSubmit} className="text-center">
+      <Button  type="submit" onClick={handleSubmit} className="text-center" >
         {isLoading? <Icon type="loading" /> : `Login`}
       </Button>
     </Form>
