@@ -17,4 +17,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     );
   };
   
+<<<<<<< HEAD
   export default PrivateRoute;
+=======
+  export default PrivateRoute;
+>>>>>>> master

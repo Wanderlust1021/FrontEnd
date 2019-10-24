@@ -76,6 +76,15 @@ const OrganizerSidePanel = (props) => {
           </div>
         </div>
       </div>
+      <button
+        onClick={() => props.history.push(`/updateForm/${experience.id}`)}
+        className="md-button"
+      >
+        Edit Experience
+      </button>
+      <button onClick={deleteItem} className="md-button">
+        Delete Experience
+      </button>
     </>
   );
 }
