@@ -1,4 +1,3 @@
-import React from "react";
 import ExperienceCard from "./ExperienceCard";
 import HomePage from "./HomePage";
 import React, { useState, useEffect } from "react";
@@ -7,10 +6,10 @@ import { connect } from "react-redux";
 import * as actionCreators from "../state/ActionCreators";
 
 
-const Experiences = ({experiences}) => {
+const Experiences = ({experiences, fetchExperiences}) => {
    
   useEffect(() => {
-    props.fetchExperiences();
+    fetchExperiences();
   }, []);
   
   return (
@@ -30,25 +29,6 @@ const Experiences = ({experiences}) => {
     </HomePage>
   );
 
-  // return (
-  //   experiences && (
-  //     <div >
-  {
-    /* {experiences.map(el => (
-          <div key={el.org_name}>
-            {el.org_name}
-            <p>{el.date}</p>
-            <p>{el.experience_desc}</p>
-            <div>
-              <img src={el.date} />
-            </div>
-            {el.experience_title}
-          </div>
-        ))} */
-  }
-  //     </div>
-  //   )
-  // );
 }
 
 const mapStateToProps = state => {
