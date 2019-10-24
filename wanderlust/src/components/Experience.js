@@ -8,6 +8,8 @@ import Footer from './Footer';
 // Displays info about an experience e.g the organizer of the experience,
 // a description of the experience etc
 const Experience = (props) => {
+  
+
   return (
     <div>
       <PrivateNav />

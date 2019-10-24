@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
+import logo from '../images/Logo-Black.jpg';
 
 const PrivateNav = (props) => {
   const username = props.username || localStorage.getItem('username');
@@ -12,12 +13,10 @@ const PrivateNav = (props) => {
   }
 
   return (
-    <header clasName="pt-1 pb-1" style={{position: 'sticky', top: '0px'}}>
+    <header className="pt-1 pb-1" style={{position: 'sticky', top: '0px'}}>
 		<nav className="header-desktop hidden-xs container">
 		  <div class="logo-v2">
-		      <span>
-		        Wanderlust
-		      </span>
+		      <img src={logo} />
 		  </div>
 		  <div class="menu-v2">
 		  	<ul class="main-menu">
