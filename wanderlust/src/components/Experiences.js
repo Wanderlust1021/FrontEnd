@@ -1,20 +1,21 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import ExperienceCard from './ExperienceCard';
-import HomePage from './HomePage';
+import React from "react";
+import ExperienceCard from "./ExperienceCard";
+import HomePage from "./HomePage";
+import React, { useState, useEffect } from "react";
+import axiosWithAuth from "../axiosWithAuth";
+import { connect } from "react-redux";
 import * as actionCreators from "../state/ActionCreators";
 
 
-const Experiences = (props) => {
-  const { experiences, fetchExperiences } = props;
-
+const Experiences = ({experiences}) => {
+   
   useEffect(() => {
-    fetchExperiences();
+    props.fetchExperiences();
   }, []);
-
-  return(
+  
+  return (
     <HomePage>
-      <main className='experiences-list'>
+      <main className="experiences-list">
         <div className="container">
           <div className="row">
             {
@@ -22,13 +23,32 @@ const Experiences = (props) => {
               <div className="col-md-4" key={id}>
                 <ExperienceCard experience={experience}/>
               </div>
-              ))
-            }
+            ))}
           </div>
         </div>
       </main>
     </HomePage>
-  )
+  );
+
+  // return (
+  //   experiences && (
+  //     <div >
+  {
+    /* {experiences.map(el => (
+          <div key={el.org_name}>
+            {el.org_name}
+            <p>{el.date}</p>
+            <p>{el.experience_desc}</p>
+            <div>
+              <img src={el.date} />
+            </div>
+            {el.experience_title}
+          </div>
+        ))} */
+  }
+  //     </div>
+  //   )
+  // );
 }
 
 const mapStateToProps = state => {
