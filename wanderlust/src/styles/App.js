@@ -1,10 +1,5 @@
 import React from "react";
-import { Route, NavLink, Link } from "react-router-dom";
-import { connect } from "react-redux";
-import * as actionCreators from "./state/ActionCreators";
-import PrivateRoute from "./PrivateRoute";
-import styled from "styled-components";
-import img from "./images/forestGreen.png";
+import { Route, Switch } from "react-router-dom";
 
 // components
 import Authentication from './components/Authentication';

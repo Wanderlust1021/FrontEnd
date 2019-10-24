@@ -6,13 +6,13 @@ import axiosWithAuth from "../axiosWithAuth";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/ActionCreators";
 
-export function Experiences(props) {
-  console.log(props);
-  const [experiences, setExperiences] = useState([]);
 
+const Experiences = ({experiences}) => {
+   
   useEffect(() => {
     props.fetchExperiences();
   }, []);
+  
   return (
     <HomePage>
       <main className="experiences-list">
