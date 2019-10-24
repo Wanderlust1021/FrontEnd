@@ -93,8 +93,8 @@ const AddExperience = (props) => {
                 </div>
               </div>
               <div className="form-actions">
-                <Link className="btn btn-default" id="cancel">Cancel&nbsp;</Link>
-                  <input type="submit" value="Save changes" className="btn btn-update btn-primary"/>
+                <Link className="btn btn-default" id="cancel" style={{marginRight: '2px'}}>Cancel</Link>
+                <input type="submit" value="Save changes" className="btn btn-update btn-primary"/>
               </div>
             </form>
           </div>
