@@ -1,7 +1,5 @@
 import React from "react";
 import { Route, NavLink, Switch, useRouteMatch } from "react-router-dom";
-import { connect } from "react-redux";
-import * as actionCreators from "../state/ActionCreators";
 import img from '../images/forestGreen.png';
 
 import {
@@ -14,7 +12,7 @@ import {
 import Login from "./Login";
 import SignUp from "./SignUp";
 
-export const AuthTest = props => {
+export const Authentication = props => {
   let { path, url } = useRouteMatch();
   return (
     <WrapDiv img={img}>
@@ -51,14 +49,4 @@ export const AuthTest = props => {
   );
 };
 
-
-const mapStateToProps = state => {
-  return {
-    test: state.appState.test
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  actionCreators
-)(AuthTest);
+export default Authentication;
