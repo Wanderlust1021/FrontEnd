@@ -31,14 +31,20 @@ const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
   };
 
   const handleSubmit = event => {
-    debugger
+    let signupUrl, userData;
+    let isOrganizer = user.organizer === 'on';
+    if (isOrganizer){
+      signupUrl = '/org/register';
+      userData = {org_name: user.username, password: user.password}
+    } else {
+      signupUrl = '/user/register';
+      userData = {username: user.username, password: user.password}
+    }
     startAuth();
     event.preventDefault();
+
     axiosWithAuth()
-      .post('/user/register', {
-        username: user.username,
-        password: user.password
-      })
+      .post(signupUrl, userData)
       .then(response => {
         debugger
         signupSuccess(response.data.username)
