@@ -23,7 +23,7 @@ const Organizer = (props) => {
   }
 
   return (
-      <div>
+      <div style={{fontFamily:"ABeeZee"}}>
         <PrivateNav />
       
         <section className="experience-item">

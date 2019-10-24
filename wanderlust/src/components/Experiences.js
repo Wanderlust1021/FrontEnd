@@ -13,7 +13,7 @@ const Experiences = (props) => {
   }, []);
 
   return(
-    <HomePage>
+    <HomePage style={{fontFamily:"ABeeZee"}}>
       <main className='experiences-list'>
         <div className="container">
           <div className="row">

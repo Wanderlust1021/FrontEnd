@@ -4,7 +4,7 @@ import img from '../images/profile.jpg';
 
 const OrganizerSidePanel = (props) => {
   return (
-    <>
+    < >
       <div className="panel panel-default">
         <div className="panel-body">
           <div className="row">

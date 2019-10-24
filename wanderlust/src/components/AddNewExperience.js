@@ -39,7 +39,7 @@ const AddExperience = (props) => {
 
 
   return (
-    <div>
+    <div style={{fontFamily:"ABeeZee"}}>
       <PrivateNav />
       <div className="container mt-3">
         <div className="col-md-12" style={{width: '60%'}}>
@@ -53,7 +53,7 @@ const AddExperience = (props) => {
                 type="text"
                 name="org_name"
                 onChange={handleChange}
-                placeholder="Organizer name"
+                // placeholder="Organizer name"
                 value={experience.org_name}
                 className="form-control"
               />
@@ -64,7 +64,7 @@ const AddExperience = (props) => {
                 type="text"
                 name="experience_title"
                 onChange={handleChange}
-                placeholder="Experience title"
+                // placeholder="Experience title"
                 value={experience.experience_title}
                 className="form-control"
               />
@@ -89,7 +89,7 @@ const AddExperience = (props) => {
                 className="form-control"
               />
             </div>
-            <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
+            <button type="submit" className="btn btn-dark" onClick={handleSubmit}>Submit</button>
           </form>
         </div>
       </div>

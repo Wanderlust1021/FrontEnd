@@ -90,7 +90,7 @@ const Login = (props) => {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit" onClick={handleSubmit} className="text-center">
+      <Button variant="dark" type="submit" onClick={handleSubmit} className="text-center">
         {isLoading? <Icon type="loading" /> : `Login`}
       </Button>
     </Form>

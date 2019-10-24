@@ -6,7 +6,7 @@ import img from '../images/profile.jpg';
 const OrganizerCard = (props) => {
 
   return (
-    <div className="panel-card">
+    <div className="panel-card" style={{fontFamily:"ABeeZee"}}>
       <Link>
         <img 
           className="display-image display-organizer-image" 

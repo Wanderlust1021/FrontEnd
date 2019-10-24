@@ -15,7 +15,7 @@ const PrivateNav = (props) => {
   }
 
   return (
-    <header className="pt-1 pb-1">
+    <header className="pt-1 pb-1" style={{fontFamily:"ABeeZee"}}>
 		<nav className="header-desktop hidden-xs container">
 		  <div className="logo-v2">
 		      <img src={logo} />

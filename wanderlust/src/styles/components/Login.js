@@ -69,7 +69,7 @@ const Login = (props) => {
         />
       </FormGroup>
 
-      <Button  type="submit" onClick={handleSubmit} className="text-center" >
+      <Button variant="dark" type="submit" onClick={handleSubmit} className="text-center" >
         {isLoading? <Icon type="loading" /> : `Login`}
       </Button>
     </Form>

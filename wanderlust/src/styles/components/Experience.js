@@ -11,7 +11,7 @@ import Footer from './Footer';
 const Experience = (props) => {
 
   return (
-    <div>
+    <div style={{fontFamily:"ABeeZee"}}>
       <PrivateNav />
 
       <section className="experience-item">

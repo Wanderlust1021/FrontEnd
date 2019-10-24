@@ -93,7 +93,7 @@ const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
           onChange={handleChange}
         />
       </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit} className="text-center">
+      <Button variant="dark" type="submit" onClick={handleSubmit} className="text-center">
         {isLoading? <Icon type="loading" /> : `Register`}
       </Button>
     </Form>

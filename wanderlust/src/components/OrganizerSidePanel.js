@@ -5,7 +5,7 @@ import img from '../images/profile.jpg';
 const OrganizerSidePanel = (props) => {
   return (
     <>
-      <div className="panel panel-default">
+      <div className="panel panel-default" style={{fontFamily:"ABeeZee"}}>
         <div className="panel-body">
           <div className="row">
             <div class="col-md-5 price-label">Price</div>

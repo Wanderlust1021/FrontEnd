@@ -32,7 +32,7 @@ export const addExperienceForm = props => {
  
 
   return (
-    <div>
+    <div style={{fontFamily:"ABeeZee"}}>
       <h2>Add New Experience </h2>
       <form onSubmit={addExperience}>
         <input

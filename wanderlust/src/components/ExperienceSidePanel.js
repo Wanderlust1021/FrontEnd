@@ -7,7 +7,7 @@ const ExperienceSidePanel = (props) => {
   let { path, url } = useRouteMatch();
 
   return (
-    <div className="panel panel-default">
+    <div className="panel panel-default" style={{fontFamily:"ABeeZee"}}>
       <div className="panel-body">
         <ul className="nav nav-tabs">
           <li class="nav-item">

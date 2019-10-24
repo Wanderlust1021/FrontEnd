@@ -22,7 +22,7 @@ export const MainStyled = styled.main`
   margin: 70px auto;
   background: white;
   padding: 15px;
-  opacity: 0.95;
+  opacity: 0.75;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   &:hover {
     cursor: pointer;

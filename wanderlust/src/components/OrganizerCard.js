@@ -7,7 +7,7 @@ const OrganizerCard = (props) => {
   const { org_name } = props.organizer;
 
   return (
-    <div className="panel-card">
+    <div className="panel-card" style={{fontFamily:"ABeeZee"}}>
       <Link>
         <img 
           className="display-image display-organizer-image" 

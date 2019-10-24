@@ -6,7 +6,7 @@ import Footer from './Footer';
 
 const HomePage = (props) => {
   return (
-    <div>
+    <div style={{fontFamily:"ABeeZee"}}>
       <PrivateNav />
       <SearchBar />
       { props.children }
