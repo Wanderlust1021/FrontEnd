@@ -14,9 +14,6 @@ import {
 } from "react-bootstrap";
 import { Icon } from 'antd';
 
-const loginUrl = "https://wanderlust-ty.herokuapp.com/api/user/login";
-
-
 const Login = (props) => {
   const {startAuth, loginSuccess, authFailure, isLoading, history} = props;
   const initalState = { username: "", password: "", organizer: '' };
@@ -28,23 +25,26 @@ const Login = (props) => {
   };
 
   const handleSubmit = event => {
+    let loginUrl, userData;
+    let isOrganizer = user.organizer === 'on';
+    if (isOrganizer){
+      loginUrl = '/org/login';
+      userData = {org_name: user.username, password: user.password}
+    } else {
+      loginUrl = '/user/login';
+      userData = {username: user.username, password: user.password}
+    }
     startAuth();
     event.preventDefault();
     axiosWithAuth()
-      .post('/user/login', user)
+      .post(loginUrl, userData)
       .then(response => {
         debugger
         localStorage.setItem("token", response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data));
-        if (user.organizer){
-            localStorage.setItem("organizer", user.organizer)
-            localStorage.removeItem("username");
-        } else {
-            localStorage.removeItem("organizer")
-            localStorage.setItem("username", user.username);
-        }       
+        localStorage.setItem("username", user.username);
         let data = {organizer: '', username: ''};
-        if ( user.organizer == 'on'){
+        if (isOrganizer){
           data.organizer = user.username
         } else {
           data.username = user.username;
