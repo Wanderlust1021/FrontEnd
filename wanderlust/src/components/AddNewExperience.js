@@ -4,6 +4,8 @@ import axiosWithAuth from "../axiosWithAuth";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/ActionCreators";
 import PrivateNav from './PrivateNav';
+import { Link } from 'react-router-dom';
+import PageContainer from './PageContainer';
 
 const AddExperience = (props) => {
   const initialState = {
@@ -41,62 +43,65 @@ const AddExperience = (props) => {
 
 
   return (
-    <div>
-      <PrivateNav />
-      <div className="container mt-3">
-        <div className="col-md-12" style={{width: '60%'}}>
-          <div>
-            <h1>Add an Experience</h1>
+    <PageContainer>
+      <div className="container" style={{width: '70%'}}>
+        <div className="panel panel-primary panel-organizer mt-4">
+          <div className="panel-heading">
+            <h5>Add an Experience</h5>
           </div>
-          <form onSubmit={handleSubmit} method="post">
-            <div class="form-group">
-              <label for="">Organization Name</label>
-              <input
-                type="text"
-                name="org_name"
-                onChange={handleChange}
-                placeholder="Organizer name"
-                value={experience.org_name}
-                className="form-control"
-              />
-            </div>
-            <div class="form-group">
-              <label for="">Experience title</label>
-              <input
-                type="text"
-                name="experience_title"
-                onChange={handleChange}
-                placeholder="Experience title"
-                value={experience.experience_title}
-                className="form-control"
-              />
-            </div>
-            <div class="form-group">
-              <label for="">Experience Description</label>
-              <textarea
-                name="experience_desc"
-                onChange={handleChange}
-                value={experience.experience_desc}
-                className="form-control"
-                rows="3"
-              >Place your description here...</textarea>
-            </div>
-            <div class="form-group">
-              <label for="">Date</label>
-              <input
-                type="date"
-                name="date"
-                onChange={handleChange}
-                value={experience.date}
-                className="form-control"
-              />
-            </div>
-            <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
-          </form>
+          <div className="panel-body">
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label for="user_weblinks">Title</label>
+                <input 
+                  className="form-control" 
+                  type="text"
+                  name="experience_title"
+                  onChange={handleChange}
+                  value={experience.experience_title}
+                />
+              </div>
+              <div class="form-group">
+                <label>Description</label>
+                <textarea 
+                  className="form-control"
+                  style={{height: '6rem'}} 
+                  name="experience_desc"
+                  onChange={handleChange}
+                  value={experience.experience_desc}
+                >
+                </textarea>
+              </div>
+              <div className="form-group">
+                <label className="string optional" for="user_skype">Date</label>
+                <input 
+                  type="date" 
+                  name="date"
+                  className="form-control"
+                  onChange={handleChange}
+                  placeholder="Date"
+                  value={experience.date}
+                />
+              </div>
+              <div className="form-group">
+                <label>Image (optional)</label>
+                <input className="form-control hide" type="file" name=""/>
+                <div className="row">
+                  <div className="col-md-2">
+                    <button className="btn btn-primary" id="profile">Browse</button>
+                  </div>
+                </div>
+              </div>
+              <div className="form-actions">
+                <Link className="btn btn-default" id="cancel">Cancel&nbsp;</Link>
+                  <input type="submit" value="Save changes" className="btn btn-update btn-primary"/>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-    );
+    </PageContainer>
+  );
 }
 
 

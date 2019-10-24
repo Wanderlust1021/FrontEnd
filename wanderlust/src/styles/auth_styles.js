@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 
 export const WrapDiv = styled.div`
@@ -28,4 +29,3 @@ export const MainStyled = styled.main`
     cursor: pointer;
   }
 `;
-

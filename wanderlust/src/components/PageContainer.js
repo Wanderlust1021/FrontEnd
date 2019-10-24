@@ -1,18 +1,16 @@
 import React from 'react';
 import PrivateNav from './PrivateNav';
-import SearchBar from './SearchBar';
 import Footer from './Footer';
 
 
-const HomePage = (props) => {
+const PageContainer = (props) => {
   return (
-    <div>
+    <div className="main">
       <PrivateNav />
-      <SearchBar />
       { props.children }
       <Footer />
     </div>
   )
 }
 
-export default HomePage;
+export default PageContainer;
