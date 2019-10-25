@@ -3,6 +3,8 @@ import img from '../images/profile.jpg';
 
 
 const OrganizerSidePanel = (props) => {
+  const { org_name, experience_title, experience_desc } = props.experience;
+
   return (
     <>
       <div className="panel panel-default">
@@ -39,7 +41,7 @@ const OrganizerSidePanel = (props) => {
 
       <div className="panel panel-default">
         <div class="panel-heading">
-          <h5>About Neema</h5>
+          <h5>About {org_name}</h5>
         </div>
         <div className="panel-body">
           <div className="row">
@@ -54,7 +56,7 @@ const OrganizerSidePanel = (props) => {
               <div class="row">
                 <div class="col-md-12">
                   <a target="_blank" href="">
-                    Neema </a>
+                    {org_name} </a>
                   </div>
               </div>
               <div class="row">

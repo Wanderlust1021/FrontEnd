@@ -43,7 +43,7 @@ export const deleteExperiences = () => dispatch => {
     });
 };
 
-export const updateExperience = () => dispatch => {
+export const updateExperience = (newExp) => dispatch => {
   dispatch({});
   axiosWithAuth()
     .put("")
@@ -54,6 +54,17 @@ export const updateExperience = () => dispatch => {
       dispatch({});
     });
 };
+
+export const addExperience = (newExp) => {
+  return {
+    type: types.ADD_EXPERIENCE,
+    payload: newExp
+  }
+};
+
+export const fetchSuccess = (data) => {
+  return { type: types.FETCHED_SUCCESSFULLY, payload: data };
+}
 
 export const startAuth = () => {
   return {

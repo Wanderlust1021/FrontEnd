@@ -3,7 +3,7 @@ import { Switch, Link, NavLink, useRouteMatch, Route } from 'react-router-dom';
 
 
 const ExperienceSidePanel = (props) => {
-
+  const { org_name, experience_title, experience_desc } = props.experience;
   let { path, url } = useRouteMatch();
 
   return (
@@ -38,26 +38,7 @@ const ExperienceSidePanel = (props) => {
               <div className="tab-pane fade active in mt-3" id="about">
                 <div className="row">
                   <div className="col-md-12">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                      enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                      in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                      nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                      sunt in culpa qui officia deserunt mollit anim id est laborum
-                    </p>
-              
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                      enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                      in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                      nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                      sunt in culpa qui officia deserunt mollit anim id est laborum
-                    </p>
-              
+                    {experience_desc}
                   </div>
                 </div>
                 <hr/>
@@ -73,15 +54,7 @@ const ExperienceSidePanel = (props) => {
               <div className="tab-pane fade active in mt-3" id="about">
                 <div className="row">
                   <div className="col-md-12">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                      enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                      in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                      nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                      sunt in culpa qui officia deserunt mollit anim id est laborum
-                    </p>
+                    <h5>{experience_title}</h5>
               
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

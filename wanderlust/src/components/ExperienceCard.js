@@ -1,29 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import img from '../images/experience.jpg';
+import UpdateButtons from './UpdateButtons';
 
 
-const Experience = (props) => {
+const ExperienceCard = (props) => {
   const {
     org_name,
     experience_title,
     experience_desc,
-    image
+    image,
+    id
   } = props.experience;
 
   let imgUrl = image || img;
+  let expUrl = `experiences/${id}`;
 
+  const user  = JSON.parse(localStorage.getItem('user'));
 
   return (
     <div className="panel-card">
-      <Link>
+      <Link to={expUrl}>
         <img 
           className="display-image" 
           src={imgUrl}
           alt="sample experience"
         />
       </Link>
-      <Link className="text-center">
+      <Link to={expUrl} className="text-center">
         <h2 className="panel-title">
           { experience_title }
         </h2>
@@ -46,9 +50,18 @@ const Experience = (props) => {
           </span>
         </h4>
       </Link>
+      {
+      user.org?(
+        <UpdateButtons 
+          className="mt-4" 
+          editUrl={`/experiences/${id}/edit`}
+          experienceId={id}
+        />
+      ): null
+      }
     </div>
   )
 
 }
 
-export default Experience;
+export default ExperienceCard;

@@ -5,10 +5,12 @@ import Footer from './Footer';
 
 const PageContainer = (props) => {
   return (
-    <div className="main">
-      <PrivateNav />
-      { props.children }
-      <Footer />
+    <div className="main" style={{minHeight: '100vh'}}>
+      <div className="wrapper">
+        <PrivateNav />
+        { props.children }
+        <Footer />
+      </div>
     </div>
   )
 }

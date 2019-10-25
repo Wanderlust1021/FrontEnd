@@ -1,14 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import img from '../images/profile.jpg';
 
 
 const OrganizerCard = (props) => {
-  const { org_name } = props.organizer;
+  const { id, org_name } = props.organizer;
+  let { path, url } = useRouteMatch();
 
   return (
     <div className="panel-card">
-      <Link>
+      <Link to={`${url}/${id}`}>
         <img 
           className="display-image display-organizer-image" 
           src={img}

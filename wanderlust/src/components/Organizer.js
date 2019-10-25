@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   NavLink, 
   Link, 
   useRouteMatch, 
+  useParams,
   Switch, 
   Route,
 } 
@@ -10,17 +11,28 @@ from 'react-router-dom';
 import PrivateNav from './PrivateNav';
 import Footer from './Footer';
 import ExperienceCard from './ExperienceCard';
+import axiosWithAuth from "../axiosWithAuth";
+import { connect } from "react-redux";
+import { fetchSuccess } from "../state/ActionCreators";
 
 
 // Displays info for a specific organizer
-const Organizer = (props) => {
+const Organizer = ({experiences, fetchSuccess}) => {
 
   let { path, url } = useRouteMatch();
-  const [experiences, setExperiences] = useState([])
+  let { id } = useParams();
 
   const fetchOrganizerExperiences = () => {
-
+    axiosWithAuth()
+      .get(`/exp/${id}`)
+      .then(response => {
+        fetchSuccess(response.data);
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
+  
 
   return (
       <div>
@@ -45,14 +57,21 @@ const Organizer = (props) => {
                     activeClassName="active in" 
                     to={`${url}/about`}
                     isActive={(match, location) => {
-                      return location.path == url || match;
+                      return location.pathname == url || match;
                     }}
                   >
                     About
                   </NavLink>
                 </li>
                 <li class="nav-item">
-                  <NavLink className="nav-link" activeClassName="active in" to={`${url}/experiences`}>Experiences</NavLink>
+                  <NavLink 
+                    className="nav-link" 
+                    activeClassName="active in" 
+                    to={`${url}/experiences`}
+                    onClick={fetchOrganizerExperiences}
+                  >
+                    Experiences
+                  </NavLink>
                 </li>
               </ul>
               <div className="tab-content pt-4">
@@ -166,15 +185,14 @@ const Organizer = (props) => {
                     </div>
                   </Route>
                   <Route path={`${path}/experiences`}>
-                    <div className="tab-pane fade" id="experiences">
+                    <div className="tab-pane fade active in" id="experiences">
                       <div className="row">
-                          {
-                            experiences && experiences.map((experience, id) => (
-                            <div className="col-md-4" key={id}>
-                              <ExperienceCard />
-                            </div>
-                            ))
-                          }
+                        {
+                          experiences && experiences.map((experience, id) => (
+                          <div className="col-md-4" key={id}>
+                            <ExperienceCard experience={experience}/>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </Route>
@@ -203,4 +221,18 @@ const Organizer = (props) => {
   )
 }
 
-export default Organizer;
+const mapStateToProps = state => {
+  return {
+    experiences: state.appState.data
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+    fetchSuccess: data => dispatch(fetchSuccess(data))
+  }
+)
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Organizer);

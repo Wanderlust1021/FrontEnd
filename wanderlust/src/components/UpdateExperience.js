@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import axiosWithAuth from "../axiosWithAuth";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/ActionCreators";
-import { addExperience } from '../state/ActionCreators';
-import PrivateNav from './PrivateNav';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import PageContainer from './PageContainer';
 
-const AddExperience = (props) => {
+const UpdateExperience = (props) => {
+
+  const { experiences } = props;
+
   const initialState = {
     experience_title: "",
     experience_desc: "",
@@ -16,9 +16,18 @@ const AddExperience = (props) => {
     image: null
   }
 
-  const user = JSON.parse(localStorage.getItem('user'));
-
   const [experience, setExperience] = useState(initialState);
+  const user = JSON.parse(localStorage.getItem('user'));
+  const { id } = useParams();// id of the experience
+
+  useEffect(() => {
+    const experienceToUpdate = experiences.find(experience => experience.id == id );
+    if (experienceToUpdate){
+      setExperience(experienceToUpdate)
+    }
+  }, [id, experiences]
+  )
+
 
   const handleChange = event => {
     setExperience({
@@ -31,10 +40,8 @@ const AddExperience = (props) => {
     debugger
     event.preventDefault();
     axiosWithAuth()
-      .post(`/org/${user.id}/exp`, experience)
+      .put(`/exp/${id}`, experience)
       .then(response => {
-        debugger
-        addExperience(experience)
         props.history.push('/experiences')
       })
       .catch(error => {
@@ -48,7 +55,7 @@ const AddExperience = (props) => {
       <div className="container" style={{width: '70%'}}>
         <div className="panel panel-primary panel-organizer mt-4">
           <div className="panel-heading">
-            <h5>Add an Experience</h5>
+            <h5>Edit Experience</h5>
           </div>
           <div className="panel-body">
             <form onSubmit={handleSubmit}>
@@ -118,11 +125,8 @@ const mapStateToProps = state => {
     experiences: state.appState.data
   };
 };
-const mapDispatchToProps = dispatch => ({
-  addExperience: (newExp) => dispatch(addExperience(newExp)),
-})
-
+  
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(AddExperience);
+  actionCreators
+)(UpdateExperience);

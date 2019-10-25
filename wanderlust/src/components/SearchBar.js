@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import * as actionCreators from "../state/ActionCreators";
+import { connect } from 'react-redux';
 import { FaSearch } from 'react-icons/fa';
 
 const SearchBar = (props) => {
@@ -26,4 +28,13 @@ const SearchBar = (props) => {
   )
 }
 
-export default SearchBar;
+const mapStateToProps = state => {
+  return {
+    experiences: state.appState.data
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(SearchBar);
