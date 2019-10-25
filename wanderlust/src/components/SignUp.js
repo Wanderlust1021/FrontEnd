@@ -13,11 +13,11 @@ import {
 } from "react-bootstrap";
 
 
-import { Icon } from 'antd';
+import { Icon } from "antd";
 
 const signupUrl = "https://wanderlust-ty.herokuapp.com/api/user/register";
 
-const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
+const SignUp = ({ signupSuccess, startAuth, history, isLoading }) => {
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -31,14 +31,20 @@ const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
   };
 
   const handleSubmit = event => {
-    debugger
+    let signupUrl, userData;
+    let isOrganizer = user.organizer === 'on';
+    if (isOrganizer){
+      signupUrl = '/org/register';
+      userData = {org_name: user.username, password: user.password}
+    } else {
+      signupUrl = '/user/register';
+      userData = {username: user.username, password: user.password}
+    }
     startAuth();
     event.preventDefault();
+
     axiosWithAuth()
-      .post('/user/register', {
-        username: user.username,
-        password: user.password
-      })
+      .post(signupUrl, userData)
       .then(response => {
         debugger
         signupSuccess(response.data.username)
@@ -47,17 +53,27 @@ const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
       })
       .catch(error => {
         debugger;
-        authFailure(error.response.data.message)
+        authFailure(error.response.data.message);
       });
   };
 
   return (
     <Form>
       <FormGroup controlId="validationFormik01">
-        <FormControl name="firstName" type="text" placeholder="First Name" />
+        <FormControl
+          name="firstName"
+          type="text"
+          placeholder="First Name"
+          required
+        />
       </FormGroup>
       <FormGroup controlId="validationFormik02">
-        <FormControl name="lastName" type="text" placeholder="Last Name" />
+        <FormControl
+          name="lastName"
+          type="text"
+          placeholder="Last Name"
+          required
+        />
       </FormGroup>
       <FormGroup controlId="ValidationFormikUsername">
         <FormControl
@@ -66,10 +82,11 @@ const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
           placeholder="Username"
           value={user.username}
           onChange={handleChange}
+          required
         />
       </FormGroup>
       <FormGroup controlId="ValidationFormikEmail">
-        <FormControl type="email" placeholder="Enter email" />
+        <FormControl type="email" placeholder="Enter email" required />
         <FormText className="text-muted">
           We'll never share your email with anyone else.
         </FormText>
@@ -82,6 +99,7 @@ const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
           placeholder="Password"
           value={user.password}
           onChange={handleChange}
+          required
         />
         <Form.Text className="text-muted">
           Must be at least 8 characters.
@@ -95,8 +113,13 @@ const SignUp = ({signupSuccess, startAuth, history, isLoading}) => {
           onChange={handleChange}
         />
       </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit} className="text-center">
-        {isLoading? <Icon type="loading" /> : `Register`}
+      <Button
+        variant="primary"
+        type="submit"
+        onClick={handleSubmit}
+        className="text-center"
+      >
+        {isLoading ? <Icon type="loading" /> : `Register`}
       </Button>
     </Form>
   );
@@ -112,7 +135,7 @@ const mapDispatchToProps = dispatch => ({
   signupSuccess: username => dispatch(signupSuccess(username)),
   startAuth: () => dispatch(startAuth()),
   authFailure: error => dispatch(authFailure(error))
-})
+});
 
 export default connect(
   mapStateToProps,

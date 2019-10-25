@@ -8,6 +8,20 @@ import logo from '../images/Logo-Black.jpg';
 const PrivateNav = (props) => {
   const username = props.username || localStorage.getItem('username');
   const user  = JSON.parse(localStorage.getItem('user'));
+  const id = user.org? user.org.id: user.user.id;
+  let dropDown = [
+    {name: 'Home', url: '/experiences'},
+    {name: 'Profile', url: '/experiences'},
+  ]
+
+  let orgDropDown = [
+    {name: 'Your Experiences', url: `/experiences/${id}/all`},
+    {name: 'Add Experience', url: '/experiences/new'},
+    {name: 'Messages', url: '/experiences'},
+  ]
+
+  dropDown = user.org? dropDown.concat(orgDropDown): dropDown;
+
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
@@ -38,12 +52,13 @@ const PrivateNav = (props) => {
 		  				<span class="caret"></span>
 		  			</Link>
 		  			<ul class="sub-menu">
-		  				<li>
-                <Link to="/experiences">Home</Link>
-		  				</li>
-		  				<li>
-		  					<Link to="#">Profile</Link>
-		  				</li>
+              {
+                dropDown.map(({name, url}) => (
+                  <li>
+                    <Link to={url}>{name}</Link>
+                    </li>
+                ))
+              }
 		  				<li>
 		              <a onClick={logout}>Logout</a>
 		  				</li>

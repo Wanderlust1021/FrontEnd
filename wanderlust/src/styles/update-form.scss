@@ -1,0 +1,115 @@
+.panel-organizer .panel-heading {
+    color: #fff;
+    background-color: #1abced;
+    border-color: #fff;
+}
+
+.panel-heading {
+    padding: 0.5em 1.2em;
+    border-bottom: 1px solid transparent;
+}
+
+.panel-organizer {
+	border-color: #ededed;
+}
+
+.panel-organizer .panel-heading h5 {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.panel {
+    margin-bottom: 1.5rem;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+
+.panel-body {
+  padding: 1rem;
+}
+
+.panel-body .btn-primary {
+    color: #fff;
+    background-color: #1ABCED;
+    border-color: #11addc;
+}
+
+.panel-body label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.panel-body .form-control {
+    display: block;
+    width: 100%;
+    height: 35px;
+    padding: 6px 12px;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 17px;
+    color: inherit;
+}
+
+.panel-group .panel {
+    margin-bottom: 0;
+    border-radius: 0px;
+}
+
+.panel-default {
+    border-color: #ddd;
+}
+
+.hide {
+    display: none !important;
+}
+
+.btn, .submit {
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 15px;
+    line-height: 1.42857143;
+    border-radius: 0px;
+}
+
+.btn-default:active:hover {
+    color: #333;
+    background-color: #d4d4d4;
+    border-color: #8c8c8c;
+}
+
+#cancel {
+  border-color: #8c8c8c;
+}
+
+.btn-update:hover {
+  color: #fff;
+  background-color: #0d80a3;
+  border-color: #0a637e;
+}
+
+.form-actions {
+    text-align: center;
+}

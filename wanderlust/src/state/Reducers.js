@@ -28,6 +28,19 @@ export function experienceReducer(state = initialAppState, action) {
         error: action.payload
       };
 
+    case types.ADD_EXPERIENCE:
+      debugger
+      return {
+        ...state,
+        data: [...state.data, action.payload]
+      }
+
+    case types.FILTER_EXPERIENCES:
+      return {
+        ...state,
+        data: action.payload
+      }
+
     default:
       return state;
   }

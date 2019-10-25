@@ -1,14 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import PrivateNav from './PrivateNav';
 import OrganizerSidePanel from './OrganizerSidePanel';
 import ExperienceSidePanel from './ExperienceSidePanel';
 import Footer from './Footer';
+import axiosWithAuth from '../axiosWithAuth';
 
 // Displays info about an experience e.g the organizer of the experience,
 // a description of the experience etc
 
-const Experience = (props) => {
+const Experience = () => {
+  const { id } = useParams();
+  const [experience, setExperience] = useState({
+    org_name: "",
+    experience_title: "",
+    experience_desc: "",
+    date: "",
+    image: null
+  })
+
+  const fetchExperience = () => {
+    axiosWithAuth()
+      .get(`/exp/`)
+      .then(response => {
+        let experiences = response.data;
+        let exp = experiences.find(experience => experience.id == id) ;
+        setExperience(exp);
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+  useEffect(()=> {
+    fetchExperience();
+  }, [])
 
   return (
     <div>
@@ -25,10 +50,10 @@ const Experience = (props) => {
           
           <div className="row">
             <div className="col-md-3">
-              <OrganizerSidePanel />
+              <OrganizerSidePanel experience={experience} />
             </div>
             <div className="col-md-9">
-              <ExperienceSidePanel />
+              <ExperienceSidePanel  experience={experience}/>
             </div>
           </div>
         </div>
@@ -39,5 +64,6 @@ const Experience = (props) => {
     </div>
   )
 }
+
 
 export default Experience;

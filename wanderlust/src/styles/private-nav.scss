@@ -84,11 +84,16 @@ ul.main-menu {
     margin: 0;
     list-style: none;
     padding: 0;
-    width: 150px;
+    min-width: 160px;
     text-align: left;
     box-shadow: 0 3px 5px 0 rgba(0,0,0,.27);
     background-color: #fff;
     display: none;
+    font-size: 15px;
+}
+
+.sub-menu li a {
+  white-space: nowrap;
 }
 
 .sub-menu li:hover {
