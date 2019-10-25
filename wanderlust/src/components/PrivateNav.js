@@ -20,7 +20,7 @@ const PrivateNav = (props) => {
     {name: 'Messages', url: '/experiences'},
   ]
 
-  dropDown = user.org.org_name? dropDown.concat(orgDropDown): dropDown;
+  dropDown = user.org? dropDown.concat(orgDropDown): dropDown;
 
   const logout = () => {
     localStorage.removeItem('token');

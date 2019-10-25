@@ -7,7 +7,6 @@ export const fetchExperiences = () => dispatch => {
   axiosWithAuth()
     .get("/exp")
     .then(res => {
-      debugger
       dispatch({ type: types.FETCHED_SUCCESSFULLY, payload: res.data });
     })
     .catch(err => {
@@ -43,16 +42,11 @@ export const deleteExperiences = () => dispatch => {
     });
 };
 
-export const updateExperience = (newExp) => dispatch => {
-  dispatch({});
-  axiosWithAuth()
-    .put("")
-    .then(res => {
-      dispatch({});
-    })
-    .catch(err => {
-      dispatch({});
-    });
+export const filterExperiences = (data) => {
+  return {
+    type: types.FILTER_EXPERIENCES,
+    payload: data
+  }
 };
 
 export const addExperience = (newExp) => {

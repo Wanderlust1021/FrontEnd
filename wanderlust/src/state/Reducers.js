@@ -35,6 +35,12 @@ export function experienceReducer(state = initialAppState, action) {
         data: [...state.data, action.payload]
       }
 
+    case types.FILTER_EXPERIENCES:
+      return {
+        ...state,
+        data: action.payload
+      }
+
     default:
       return state;
   }
