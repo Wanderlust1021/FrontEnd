@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import axiosWithAuth from "../axiosWithAuth";
 import { connect } from "react-redux";
-import * as actionCreators from "../state/ActionCreators";
+import * as actionCreators from '../actions/ActionCreators';
 
 const initialUpdateForm = {
     org_name: "",

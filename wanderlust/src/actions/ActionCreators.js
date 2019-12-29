@@ -1,5 +1,4 @@
 import * as types from "./Actions";
-import axios from "axios";
 import axiosWithAuth from "../axiosWithAuth";
 
 export const fetchExperiences = () => dispatch => {

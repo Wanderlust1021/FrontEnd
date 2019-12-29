@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import axiosWithAuth from "../axiosWithAuth";
 import { connect } from "react-redux";
-import * as actionCreators from "../state/ActionCreators";
-import { addExperience } from '../state/ActionCreators';
-import PrivateNav from './PrivateNav';
+import { addExperience } from '../actions/ActionCreators';
 import { Link } from 'react-router-dom';
 import PageContainer from './PageContainer';
 

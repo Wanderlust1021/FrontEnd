@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { signupSuccess, startAuth, authFailure } from "../state/ActionCreators";
-import axios from "axios";
+import { signupSuccess, startAuth, authFailure } from "../actions/ActionCreators";
 import axiosWithAuth from "../axiosWithAuth";
 import {
   Form,
@@ -9,7 +8,6 @@ import {
   FormGroup,
   FormControl,
   FormText,
-  FormLabel
 } from "react-bootstrap";
 
 

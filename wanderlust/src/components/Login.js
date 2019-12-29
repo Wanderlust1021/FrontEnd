@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { loginSuccess, authFailure, startAuth } from "../state/ActionCreators";
-import * as reducers from "../state/Reducers";
+import { loginSuccess, authFailure, startAuth } from "../actions/ActionCreators";
 import axiosWithAuth from "../axiosWithAuth";
-import axios from "axios";
 
 import {
   Button,

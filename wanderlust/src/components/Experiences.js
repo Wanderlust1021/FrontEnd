@@ -1,9 +1,8 @@
 import ExperienceCard from "./ExperienceCard";
 import HomePage from "./HomePage";
-import React, { useState, useEffect } from "react";
-import axiosWithAuth from "../axiosWithAuth";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import * as actionCreators from "../state/ActionCreators";
+import * as actionCreators from "../actions/ActionCreators";
 
 
 const Experiences = ({experiences, fetchExperiences}) => {

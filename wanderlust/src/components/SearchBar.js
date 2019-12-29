@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { filterExperiences }  from "../state/ActionCreators";
+import { filterExperiences }  from "../actions/ActionCreators";
 import { connect } from 'react-redux';
 import { FaSearch } from 'react-icons/fa';
 
