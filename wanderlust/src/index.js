@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 import "./index.scss";
 import App from "./App";
-import * as reducers from "./state/Reducers";
+import * as reducers from "./State/Reducers";
 
 const allReducers = combineReducers({
   authState: reducers.authReducer,

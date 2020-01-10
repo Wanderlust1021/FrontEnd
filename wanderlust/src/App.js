@@ -17,7 +17,7 @@ const App = props => {
   return (
     <div>
       <Switch>
-        <Route  path="/auth" component={Authentication} />
+        <Route  path="/" component={Authentication} />
         <PrivateRoute exact path="/experiences/new" component={AddExperience}/>
         <PrivateRoute exact path="/experiences" component={Experiences}/>
         <PrivateRoute exact path="/experiences/:id" component={Experience} />

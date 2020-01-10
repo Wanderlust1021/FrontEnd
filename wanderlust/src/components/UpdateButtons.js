@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axiosWithAuth from '../axiosWithAuth';
 import { connect } from "react-redux";
-import * as actionCreators from "../state/ActionCreators";
+import * as actionCreators from "../State/ActionCreators";
 
 const UpdateButtons = props => {
   // has id of the experience

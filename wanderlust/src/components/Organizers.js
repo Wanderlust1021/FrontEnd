@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import OrganizerCard from './OrganizerCard';
 import HomePage from './HomePage';
 import { connect } from 'react-redux';
-import * as actionCreators from "../state/ActionCreators";
+import * as actionCreators from "../State/ActionCreators";
 
 
 const Organizers = (props) => {

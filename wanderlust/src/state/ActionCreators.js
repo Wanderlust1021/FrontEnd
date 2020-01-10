@@ -1,5 +1,5 @@
 import * as types from "./Actions";
-import axios from "axios";
+import axios from "./node_modules/axios";
 import axiosWithAuth from "../axiosWithAuth";
 
 export const fetchExperiences = () => dispatch => {

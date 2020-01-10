@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { signupSuccess, startAuth, authFailure } from "../state/ActionCreators";
+import { signupSuccess, startAuth, authFailure } from "../State/ActionCreators";
 import axios from "axios";
 import axiosWithAuth from "../axiosWithAuth";
 import {

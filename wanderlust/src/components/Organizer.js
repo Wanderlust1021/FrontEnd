@@ -13,7 +13,7 @@ import Footer from './Footer';
 import ExperienceCard from './ExperienceCard';
 import axiosWithAuth from "../axiosWithAuth";
 import { connect } from "react-redux";
-import { fetchSuccess } from "../state/ActionCreators";
+import { fetchSuccess } from "../State/ActionCreators";
 
 
 // Displays info for a specific organizer
