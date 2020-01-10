@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { loginSuccess, authFailure, startAuth } from "../State/ActionCreators";
 import * as reducers from "../State/Reducers";
 import axiosWithAuth from "../axiosWithAuth";
-import axios from "axios";
 
 import {
   Button,

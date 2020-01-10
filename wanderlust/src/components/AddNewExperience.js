@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import axiosWithAuth from "../axiosWithAuth";
 import { connect } from "react-redux";
 import * as actionCreators from "../State/ActionCreators";

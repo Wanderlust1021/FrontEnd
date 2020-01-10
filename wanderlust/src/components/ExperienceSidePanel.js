@@ -3,7 +3,7 @@ import { Switch, Link, NavLink, useRouteMatch, Route } from 'react-router-dom';
 
 
 const ExperienceSidePanel = (props) => {
-  const { org_name, experience_title, experience_desc } = props.experience;
+  const { experience_title, experience_desc } = props.experience;
   let { path, url } = useRouteMatch();
 
   return (

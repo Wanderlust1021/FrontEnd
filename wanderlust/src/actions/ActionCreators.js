@@ -1,5 +1,8 @@
 import * as types from "./Actions";
+<<<<<<< HEAD:wanderlust/src/state/ActionCreators.js
 import axios from "./node_modules/axios";
+=======
+>>>>>>> a318920b46475f0a39e1c95acd420e2272312b1a:wanderlust/src/actions/ActionCreators.js
 import axiosWithAuth from "../axiosWithAuth";
 
 export const fetchExperiences = () => dispatch => {
