@@ -13,8 +13,6 @@ import {
 
 import { Icon } from "antd";
 
-const signupUrl = "https://wanderlust-ty.herokuapp.com/api/user/register";
-
 const SignUp = ({ signupSuccess, startAuth, history, isLoading }) => {
   const [user, setUser] = useState({
     firstName: "",

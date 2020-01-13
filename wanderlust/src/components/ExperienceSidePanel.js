@@ -16,7 +16,7 @@ const ExperienceSidePanel = (props) => {
               to={`${url}/about`}
               activeClassName="active in"
               isActive={(match, location) => {
-                return location.pathname == url || match;
+                return location.pathname === url || match;
               }}
             >
               About

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { 
   NavLink, 
   Link, 
@@ -57,7 +57,7 @@ const Organizer = ({experiences, fetchSuccess}) => {
                     activeClassName="active in" 
                     to={`${url}/about`}
                     isActive={(match, location) => {
-                      return location.pathname == url || match;
+                      return location.pathname === url || match;
                     }}
                   >
                     About

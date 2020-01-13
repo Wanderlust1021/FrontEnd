@@ -10,7 +10,7 @@ const Organizers = (props) => {
 
   useEffect(() => {
     fetchOrganizers();
-  }, []);
+  });
 
 
   return(

@@ -32,7 +32,7 @@ const PrivateNav = (props) => {
     <header className="pt-1 pb-1">
 		<nav className="header-desktop hidden-xs container">
 		  <div class="logo-v2">
-		      <img src={logo} />
+		      <img src={logo} alt='logo' />
 		  </div>
 		  <div class="menu-v2">
 		  	<ul class="main-menu">
@@ -60,7 +60,7 @@ const PrivateNav = (props) => {
                 ))
               }
 		  				<li>
-		              <a onClick={logout}>Logout</a>
+		              <a onClick={logout} href='/'>Logout</a>
 		  				</li>
 		  			</ul>
 		  

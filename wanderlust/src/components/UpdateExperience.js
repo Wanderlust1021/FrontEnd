@@ -17,11 +17,10 @@ const UpdateExperience = (props) => {
   }
 
   const [experience, setExperience] = useState(initialState);
-  const user = JSON.parse(localStorage.getItem('user'));
   const { id } = useParams();// id of the experience
 
   useEffect(() => {
-    const experienceToUpdate = experiences.find(experience => experience.id == id );
+    const experienceToUpdate = experiences.find(experience => experience.id === id );
     if (experienceToUpdate){
       setExperience(experienceToUpdate)
     }

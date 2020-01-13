@@ -11,6 +11,7 @@ const SelfExperiences = (props) => {
   let { id } = useParams();
 
   const [experiences, setExperiences] = useState([]);
+  
   const fetchExperiences = () => {
     axiosWithAuth()
       .get(`/exp/${id}`)
@@ -25,7 +26,7 @@ const SelfExperiences = (props) => {
 
   useEffect(()=> {
     fetchExperiences();
-  }, [])
+  })
 
   return (
     <HomePage>

@@ -1,6 +1,6 @@
 import ExperienceCard from "./ExperienceCard";
 import HomePage from "./HomePage";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../State/ActionCreators";
 
@@ -9,7 +9,7 @@ const Experiences = ({experiences, fetchExperiences}) => {
    
   useEffect(() => {
     fetchExperiences();
-  }, []);
+  });
   
   return (
     <HomePage>

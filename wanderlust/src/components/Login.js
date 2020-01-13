@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { loginSuccess, authFailure, startAuth } from "../State/ActionCreators";
-import * as reducers from "../State/Reducers";
 import axiosWithAuth from "../axiosWithAuth";
 
 import {
   Button,
   FormGroup,
   FormControl,
-  FormLabel,
   Form
 } from "react-bootstrap";
 import { Icon } from 'antd';

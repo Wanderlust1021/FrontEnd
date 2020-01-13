@@ -24,7 +24,7 @@ const Experience = () => {
       .get(`/exp/`)
       .then(response => {
         let experiences = response.data;
-        let exp = experiences.find(experience => experience.id == id) ;
+        let exp = experiences.find(experience => experience.id === id) ;
         setExperience(exp);
       })
       .catch(error => {
@@ -33,7 +33,7 @@ const Experience = () => {
   }
   useEffect(()=> {
     fetchExperience();
-  }, [])
+  })
 
   return (
     <div>

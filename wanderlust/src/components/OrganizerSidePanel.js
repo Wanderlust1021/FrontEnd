@@ -3,7 +3,8 @@ import img from '../images/profile.jpg';
 
 
 const OrganizerSidePanel = (props) => {
-  const { org_name, experience_title, experience_desc } = props.experience;
+  // const { org_name, experience_title, experience_desc } = props.experience;
+  const { org_name } = props.experience;
 
   return (
     <>
@@ -46,16 +47,16 @@ const OrganizerSidePanel = (props) => {
         <div className="panel-body">
           <div className="row">
             <div className="col-md-4">
-              <a href="" className="panel-profile-pic">
+              <a href="/" className="panel-profile-pic">
                 <img 
-                  alt="profile picture" 
+                  alt="panel profile" 
                   src={img} />
               </a>
             </div>
             <div className="col-md-8">
               <div class="row">
                 <div class="col-md-12">
-                  <a target="_blank" href="">
+                  <a target="_blank" href="/">
                     {org_name} </a>
                   </div>
               </div>

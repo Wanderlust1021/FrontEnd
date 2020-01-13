@@ -5,7 +5,7 @@ import img from '../images/profile.jpg';
 
 const OrganizerCard = (props) => {
   const { id, org_name } = props.organizer;
-  let { path, url } = useRouteMatch();
+  let { url } = useRouteMatch();
 
   return (
     <div className="panel-card">
