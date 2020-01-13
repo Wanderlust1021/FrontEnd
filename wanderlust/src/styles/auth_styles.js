@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 
 export const WrapDiv = styled.div`
@@ -6,7 +5,7 @@ export const WrapDiv = styled.div`
   background-image: url(${props => props.img});
   background-size: cover;
   background-position: center;
-  height: 95vh;
+  height: 100vh;
   width: 100%;
 `;
 

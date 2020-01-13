@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { signupSuccess, startAuth, authFailure } from "../State/ActionCreators";
-import axios from "axios";
 import axiosWithAuth from "../axiosWithAuth";
 import {
   Form,
@@ -18,6 +17,8 @@ const signupUrl = "https://wanderlust-ty.herokuapp.com/api/user/register";
 
 const SignUp = ({ signupSuccess, startAuth, history, isLoading }) => {
   const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
     username: "",
     email: "",
     password: "",
@@ -45,13 +46,11 @@ const SignUp = ({ signupSuccess, startAuth, history, isLoading }) => {
     axiosWithAuth()
       .post(signupUrl, userData)
       .then(response => {
-        debugger
         signupSuccess(response.data.username)
         localStorage.setItem('user', JSON.stringify(response.data));
-        history.push("/auth");
+        history.push("/");
       })
       .catch(error => {
-        debugger;
         authFailure(error.response.data.message);
       });
   };
@@ -63,6 +62,8 @@ const SignUp = ({ signupSuccess, startAuth, history, isLoading }) => {
           name="firstName"
           type="text"
           placeholder="First Name"
+          value={user.firstName}
+          onChange={handleChange}
           required
         />
       </FormGroup>
@@ -71,6 +72,8 @@ const SignUp = ({ signupSuccess, startAuth, history, isLoading }) => {
           name="lastName"
           type="text"
           placeholder="Last Name"
+          value={user.lastName}
+          onChange={handleChange}
           required
         />
       </FormGroup>
@@ -85,7 +88,13 @@ const SignUp = ({ signupSuccess, startAuth, history, isLoading }) => {
         />
       </FormGroup>
       <FormGroup controlId="ValidationFormikEmail">
-        <FormControl type="email" placeholder="Enter email" required />
+        <FormControl 
+          name="email"
+          type="email" 
+          placeholder="Enter email"
+          value={user.email}
+          onChange={handleChange} 
+          required />
         <FormText className="text-muted">
           We'll never share your email with anyone else.
         </FormText>

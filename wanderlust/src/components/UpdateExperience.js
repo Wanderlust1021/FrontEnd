@@ -37,7 +37,6 @@ const UpdateExperience = (props) => {
   }
 
   const handleSubmit = event => {
-    debugger
     event.preventDefault();
     axiosWithAuth()
       .put(`/exp/${id}`, experience)
@@ -45,7 +44,6 @@ const UpdateExperience = (props) => {
         props.history.push('/experiences')
       })
       .catch(error => {
-        debugger
       })
   }
 

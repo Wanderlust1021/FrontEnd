@@ -13,13 +13,13 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 
 export const Authentication = props => {
-  let { path, url } = useRouteMatch();
+  let { path } = useRouteMatch();
   return (
     <WrapDiv img={img}>
       <MainStyled>
         <NavBarStyled>
           <NavLink
-            to={`${url}/login`}
+            to={`/`}
             activeStyle={{
               fontWeight: "bold",
               color: "#0069d9",
@@ -29,20 +29,20 @@ export const Authentication = props => {
             <h5> SIGN IN </h5>
           </NavLink>
           <NavLink
-            to={`${url}/signup`}
+            to={`/register`}
             activeStyle={{
               fontWeight: "bold",
               color: "white",
               fontFamily: "ABeeZee"
             }}
           >
-            <h5> JOIN </h5>
+            <h5> SIGN UP </h5>
           </NavLink>
         </NavBarStyled>
         <Switch>
           <Route exact path={path} component={Login} />
-          <Route path={`${path}/login`} render={props => <Login {...props} />} />
-          <Route  path={`${path}/signup`} render={props => <SignUp {...props} />} />
+          <Route  exact path={`/`} render={props => <Login {...props} />} />
+          <Route  exact path={`/register`} render={props => <SignUp {...props} />} />
         </Switch>
       </MainStyled>
     </WrapDiv>

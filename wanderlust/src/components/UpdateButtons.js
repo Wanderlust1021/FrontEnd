@@ -12,7 +12,6 @@ const UpdateButtons = props => {
     axiosWithAuth()
       .delete(`/exp/${experienceId}`)
       .then(response => {
-        debugger
         props.history.push('/experiences')
       })
       .catch(error => {

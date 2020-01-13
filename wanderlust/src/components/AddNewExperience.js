@@ -27,17 +27,14 @@ const AddExperience = (props) => {
   }
 
   const handleSubmit = event => {
-    debugger
     event.preventDefault();
     axiosWithAuth()
       .post(`/org/${user.id}/exp`, experience)
       .then(response => {
-        debugger
         addExperience(experience)
         props.history.push('/experiences')
       })
       .catch(error => {
-        debugger
       })
   }
 

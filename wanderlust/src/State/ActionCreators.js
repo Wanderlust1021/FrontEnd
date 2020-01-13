@@ -9,7 +9,6 @@ export const fetchExperiences = () => dispatch => {
       dispatch({ type: types.FETCHED_SUCCESSFULLY, payload: res.data });
     })
     .catch(err => {
-      debugger
       dispatch({ type: types.FETCH_FAILED, payload: err.response });
     });
 };
@@ -20,11 +19,9 @@ export const fetchOrganizers = () => dispatch => {
   axiosWithAuth()
     .get("/org")
     .then(res => {
-      debugger
       dispatch({ type: types.FETCHED_SUCCESSFULLY, payload: res.data });
     })
     .catch(err => {
-      debugger
       dispatch({ type: types.FETCH_FAILED, payload: err.response });
     });
 };

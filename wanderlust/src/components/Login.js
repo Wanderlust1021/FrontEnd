@@ -38,7 +38,6 @@ const Login = (props) => {
     axiosWithAuth()
       .post(loginUrl, userData)
       .then(response => {
-        debugger
         localStorage.setItem("token", response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data));
         localStorage.setItem("username", user.username);
@@ -52,7 +51,6 @@ const Login = (props) => {
         history.push("/experiences");
       })
       .catch(error => {
-        debugger
         authFailure(error.response.data.message)
       });
 
